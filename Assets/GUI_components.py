@@ -4,43 +4,71 @@ import pygame.locals as pl
 pygame.font.init()
 
 
-
 # GUI BUTTON START
 class button():
-    def __init__(self, color,x,y,width,height, text=''):
+    def __init__(self, color, x, y, width, height, text='', font_size=25):
         self.color = color
+        self.font_size = font_size
         self.x = x
         self.y = y
         self.width = width
         self.height = height
         self.text = text
 
-    def draw(self,win,outline=None):
+    def draw(self, win, outline=None):
         if outline:
-            pygame.draw.rect(win, outline, (self.x-2,self.y-2,self.width+4,self.height+4),0)
-            
-        pygame.draw.rect(win, self.color, (self.x,self.y,self.width,self.height),0)
-        
+            pygame.draw.rect(win, outline, (self.x-2, self.y -
+                             2, self.width+4, self.height+4), 0)
+
+        pygame.draw.rect(win, self.color, (self.x, self.y,
+                         self.width, self.height), 0)
+
         if self.text != '':
-            font = pygame.font.SysFont('comicsansms', 60)
-            text = font.render(self.text, 1, (0,0,0))
-            win.blit(text, (self.x + (self.width/2 - text.get_width()/2), self.y + (self.height/2 - text.get_height()/2)))
+            font = pygame.font.SysFont('comicsansms', self.font_size)
+            text = font.render(self.text, 1, (255, 255, 0))
+            win.blit(text, (self.x + (self.width/2 - text.get_width()/2),
+                     self.y + (self.height/2 - text.get_height()/2)))
 
     def isOver(self, pos):
-        if pos[0] > self.x and pos[0] < self.x + self.width:
-            if pos[1] > self.y and pos[1] < self.y + self.height:
+        if pos[0] > self.x and pos[0] < (self.x + self.width):
+            if pos[1] > self.y and pos[1] < (self.y + self.height):
                 return True
-            
+
         return False
 # GUI BUTTON END
 
 
 # GUI DISPLAY TEXT START
 class display_text:
-    def __init__(self,screen,text="",x=0,y=0,font_family="comicsansms",font_size=20,font_color=(255,255,255)):
+    def __init__(self, screen, center=False, text="", x=0, y=0, max_width=0, max_height=0, font_family="comicsansms", font_size=17, font_color=(255, 255, 255)):
         myfont = pygame.font.SysFont(font_family, font_size)
         label = myfont.render(text, True, font_color)
-        screen.blit(label, (x, y))
+        if (label.get_rect().width) < 780:
+            if center:
+                x = x-(label.get_rect().width//2)
+                screen.blit(label, (x, y))
+            else:
+                screen.blit(label, (x, y))
+        else:
+            x = 20
+            pos = (x, y)
+            words = [word.split(' ') for word in text.splitlines()]
+            space = myfont.size(' ')[0]
+            max_width, max_height = screen.get_size()
+            max_width-=20
+            for line in words:
+                for word in line:
+                    label = myfont.render(word, 0, font_color)
+                    word_width, word_height = label.get_size()
+                    if x + word_width >= max_width:
+                        x = pos[0] #- (label.get_rect().width//2)
+                        y += word_height
+                    screen.blit(label, (x, y))
+                    x += word_width + space
+                x = pos[0] #- (label.get_rect().width//2)
+                y += word_height
+
+
 # GUI DISPLAY TEXT END
 
 
@@ -52,7 +80,7 @@ class input_text:
             font_family="comicsansms",
             font_size=20,
             antialias=True,
-            text_color=(255,255,255),
+            text_color=(255, 255, 255),
             cursor_color=(0, 0, 1),
             repeat_keys_initial_ms=400,
             repeat_keys_interval_ms=35,
@@ -78,11 +106,12 @@ class input_text:
         self.keyrepeat_intial_interval_ms = repeat_keys_initial_ms
         self.keyrepeat_interval_ms = repeat_keys_interval_ms
 
-        self.cursor_surface = pygame.Surface((int(self.font_size / 20 + 1), self.font_size))
+        self.cursor_surface = pygame.Surface(
+            (int(self.font_size / 20 + 1), self.font_size))
         self.cursor_surface.fill(cursor_color)
         self.cursor_position = len(initial_string)
-        self.cursor_visible = True  
-        self.cursor_switch_ms = 500 
+        self.cursor_visible = True
+        self.cursor_switch_ms = 500
         self.cursor_ms_counter = 0
 
         self.clock = pygame.time.Clock()
@@ -90,7 +119,7 @@ class input_text:
     def update(self, events):
         for event in events:
             if event.type == pygame.KEYDOWN:
-                self.cursor_visible = True 
+                self.cursor_visible = True
 
                 if event.key not in self.keyrepeat_counters:
                     if not event.key == pl.K_RETURN:
@@ -113,7 +142,8 @@ class input_text:
                     return True
 
                 elif event.key == pl.K_RIGHT:
-                    self.cursor_position = min(self.cursor_position + 1, len(self.input_string))
+                    self.cursor_position = min(
+                        self.cursor_position + 1, len(self.input_string))
 
                 elif event.key == pl.K_LEFT:
                     self.cursor_position = max(self.cursor_position - 1, 0)
@@ -146,12 +176,14 @@ class input_text:
                 )
 
                 event_key, event_unicode = key, self.keyrepeat_counters[key][1]
-                pygame.event.post(pygame.event.Event(pl.KEYDOWN, key=event_key, unicode=event_unicode))
+                pygame.event.post(pygame.event.Event(
+                    pl.KEYDOWN, key=event_key, unicode=event_unicode))
 
         string = self.input_string
         if self.password:
             string = "*" * len(self.input_string)
-        self.surface = self.font_object.render(string, self.antialias, self.text_color)
+        self.surface = self.font_object.render(
+            string, self.antialias, self.text_color)
 
         self.cursor_ms_counter += self.clock.get_time()
         if self.cursor_ms_counter >= self.cursor_switch_ms:
@@ -159,7 +191,8 @@ class input_text:
             self.cursor_visible = not self.cursor_visible
 
         if self.cursor_visible:
-            cursor_y_pos = self.font_object.size(self.input_string[:self.cursor_position])[0]
+            cursor_y_pos = self.font_object.size(
+                self.input_string[:self.cursor_position])[0]
             if self.cursor_position > 0:
                 cursor_y_pos -= self.cursor_surface.get_width()
             self.surface.blit(self.cursor_surface, (cursor_y_pos, 0))
