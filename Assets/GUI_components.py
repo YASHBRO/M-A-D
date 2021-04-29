@@ -45,27 +45,26 @@ class display_text:
         label = myfont.render(text, True, font_color)
         if (label.get_rect().width) < 780:
             if center:
-                x = x-(label.get_rect().width//2)
+                x = (screen.get_size()[0]//2)-(label.get_rect().width//2)
                 screen.blit(label, (x, y))
             else:
                 screen.blit(label, (x, y))
         else:
-            x = 20
             pos = (x, y)
             words = [word.split(' ') for word in text.splitlines()]
             space = myfont.size(' ')[0]
             max_width, max_height = screen.get_size()
-            max_width-=20
+            max_width -= x
             for line in words:
                 for word in line:
                     label = myfont.render(word, 0, font_color)
                     word_width, word_height = label.get_size()
                     if x + word_width >= max_width:
-                        x = pos[0] #- (label.get_rect().width//2)
+                        x = pos[0]  # - (label.get_rect().width//2)
                         y += word_height
                     screen.blit(label, (x, y))
                     x += word_width + space
-                x = pos[0] #- (label.get_rect().width//2)
+                x = pos[0]  # - (label.get_rect().width//2)
                 y += word_height
 
 

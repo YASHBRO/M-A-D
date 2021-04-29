@@ -157,8 +157,8 @@ class Advice:
         return (json.loads(request.content.decode())['slip']['advice'])
 
 
-class Qoutes:
-    def random_qoutes(self):
+class Quotes:
+    def random_quotes(self):
         url = "https://api.quotable.io/random"
         response = requests.get(url)
         cont = response.content.decode()

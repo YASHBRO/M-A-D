@@ -4,7 +4,6 @@ import pygame
 import random
 
 
-
 # MAIN SCREEN GUI START
 
 def main_screen(event):
@@ -40,7 +39,7 @@ def main_screen(event):
 
     # BUTTON 4
     suggestion_button = button(
-        color=(14, 14, 192), x=285, y=660, width=230, height=40, text="QOUTES")
+        color=(14, 14, 192), x=285, y=660, width=230, height=40, text="QUOTES")
     if event.type == pygame.MOUSEMOTION:
         if suggestion_button.isOver(mouse_pos):
             suggestion_button.color = (150, 150, 255)
@@ -56,7 +55,7 @@ def main_screen(event):
 
     # RANDOM TIP
     global main_screen_tip
-    display_text(screen,center=True,text=main_screen_tip,x=400,y=800)
+    display_text(screen, center=True, text=main_screen_tip, x=20, y=800)
 
 # MAIN SCREEN GUI END
 
@@ -75,18 +74,19 @@ def main():
 
 
 def gen_tip():
-    tip_no = random.randint(1,5)
-    # tip_no=4
+    tip_no = random.randint(1, 5)
+    # tip_no=3
     if tip_no == 1:
         data = Anime().random_quotes()
-        text = (f'" {data["quote"]} "') + (f'  - {data["character"]} (Anime : {data["anime"]})')
+        text = (f'" {data["quote"]} "') + \
+            (f'  - {data["character"]} (Anime : {data["anime"]})')
     if tip_no == 2:
-        data = Qoutes().random_qoutes()
+        data = Quotes().random_quotes()
         text = (f'" {data["content"]} "') + (f" - {data['author']}")
     if tip_no == 3:
         text = "Advice : "+Advice().gen_advice()
     if tip_no == 4:
-        text ="~~   " + Joke().get_joke() + "   ~~"
+        text = "~~   " + Joke().get_joke() + "   ~~"
     if tip_no == 5:
         text = 'Fact: '+Facts().random_facts()
     with open("temp\\temp_data.json", 'r') as f:
@@ -96,6 +96,7 @@ def gen_tip():
         f.write(json.dumps(file_text))
     return text
 
+
 if __name__ == "__main__":
 
     #  GLOBAL VARIABLES START
@@ -103,9 +104,9 @@ if __name__ == "__main__":
     BACKGROUND = (0, 16, 42)
     FPS = 60
     ICON = pygame.image.load("assets\\favicon_io\\favicon-32x32.png")
-    main_screen_tip=gen_tip()
+    main_screen_tip = gen_tip()
     #  GLOBAL VARIABLES END
-    
+
     # PYGAME INIT() BASICS START
     pygame.init()
     pygame.font.init()
