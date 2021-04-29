@@ -76,6 +76,16 @@ class Poem:
         response = requests.get("https://poetrydb.org/random")
         cont = response.content.decode()
         return json.loads(cont)[0]
+    
+    def poem_by_author(self,name):
+        response = requests.get(f"https://poetrydb.org/author,random/{name};1")
+        cont = response.content.decode()
+        return json.loads(cont)[0]
+    
+    def poem_by_title(self,name):
+        response = requests.get(f"https://poetrydb.org/title,random/{name};1")
+        cont = response.content.decode()
+        return json.loads(cont)[0]
 
 
 class Lyrics:
