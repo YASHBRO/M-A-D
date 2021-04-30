@@ -155,7 +155,7 @@ class Songs:
     def downloadAudio(self, name):
         link = Songs().findLink(name)
         yt = YouTube(link)
-        yt.register_on_progress_callback(show_progress_bar)
+        yt.register_on_progress_callback(Songs().show_progress_bar)
         yt.streams.get_audio_only().download()
         return yt.title, yt.thumbnail_url
 
@@ -180,3 +180,7 @@ class Joke:
         link = 'https://icanhazdadjoke.com/slack'
         request = requests.get(link)
         return (json.loads(request.content.decode())['attachments'][0]['text'])
+
+
+if __name__=="__main__":
+    pass
