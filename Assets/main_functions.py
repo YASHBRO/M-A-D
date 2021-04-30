@@ -86,13 +86,16 @@ class Poem:
         response = requests.get(f"https://poetrydb.org/title,random/{name};1")
         cont = response.content.decode()
         return json.loads(cont)[0]
+    
+    def download_poem(self,text):
+        with open(text["title"]+".txt",'w') as f:
+            poem_file_text=text["title"]+'\n\t'+'-'+text["author"]+'\n\n'+"\n".join(text["lines"])
+            f.write(poem_file_text)
 
 
 class Lyrics:
     def __init__(self):
-        super().__init__()
-        self.genius = Genius(
-            'WzjUkhMwHMY-BeG1T48JOSJKAuu5xR7MljxiM8VRI6GibJ19gDQm2cp7_Q5aLbx2')
+        self.genius = Genius(data["geniusAPI"]["token"])
 
     def searchSong(self, song, artist=''):
         if artist != '':

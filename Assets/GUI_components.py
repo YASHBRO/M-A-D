@@ -6,16 +6,20 @@ pygame.font.init()
 
 # GUI BUTTON START
 class button():
-    def __init__(self, color, x, y, width, height, text='', font_size=25):
+    def __init__(self, color, x, y, width, height, text='', font_color=(0, 0, 0), font_size=25):
         self.color = color
         self.font_size = font_size
+        self.font_color=font_color
         self.x = x
         self.y = y
         self.width = width
         self.height = height
         self.text = text
+        if self.text != '':
+            font = pygame.font.SysFont('comicsansms', self.font_size)
+            self.text = font.render(self.text, 1, font_color)
 
-    def draw(self, win, font_color=(0,0,0), outline=None):
+    def draw(self, win, outline=None):
         if outline:
             pygame.draw.rect(win, outline, (self.x-2, self.y -
                              2, self.width+4, self.height+4), 0)
@@ -23,11 +27,9 @@ class button():
         pygame.draw.rect(win, self.color, (self.x, self.y,
                          self.width, self.height), 0)
 
-        if self.text != '':
-            font = pygame.font.SysFont('comicsansms', self.font_size)
-            text = font.render(self.text, 1, font_color)
-            win.blit(text, (self.x + (self.width/2 - text.get_width()/2),
-                     self.y + (self.height/2 - text.get_height()/2)))
+        
+        win.blit(self.text, (self.x + (self.width/2 - self.text.get_width()/2),
+                     self.y + (self.height/2 - self.text.get_height()/2)))
 
     def isOver(self, pos):
         if pos[0] > self.x and pos[0] < (self.x + self.width):
@@ -53,8 +55,12 @@ class display_text:
             pos = (x, y)
             words = [word.split(' ') for word in text.splitlines()]
             space = myfont.size(' ')[0]
-            max_width, max_height = screen.get_size()
-            max_width -= x
+            if max_width==0:
+                max_width=screen.get_size()[0]
+                max_width -= x
+            if max_height==0:
+                max_height = screen.get_size()[1]
+                
             for line in words:
                 for word in line:
                     label = myfont.render(word, 0, font_color)
@@ -112,7 +118,7 @@ class input_text:
         self.cursor_visible = True
         self.cursor_switch_ms = 250
         self.cursor_ms_counter = 0
-        self.active=False
+        self.active = False
         self.clock = pygame.time.Clock()
 
     def update(self, events):
@@ -123,11 +129,13 @@ class input_text:
 
                     if event.key not in self.keyrepeat_counters:
                         if not event.key == pl.K_RETURN:
-                            self.keyrepeat_counters[event.key] = [0, event.unicode]
+                            self.keyrepeat_counters[event.key] = [
+                                0, event.unicode]
 
                     if event.key == pl.K_BACKSPACE:
                         self.input_string = (
-                            self.input_string[:max(self.cursor_position - 1, 0)]
+                            self.input_string[:max(
+                                self.cursor_position - 1, 0)]
                             + self.input_string[self.cursor_position:]
                         )
 
