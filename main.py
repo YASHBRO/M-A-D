@@ -230,13 +230,6 @@ class poems_page:
                 break
 
         font_size_poem = font_size_heading-6
-        while True:
-            font = pygame.font.SysFont('comicsansms', font_size_poem)
-            self.text = font.render(text["lines"][0], 1, (0, 0, 0))
-            if (self.text.get_rect().height)*(int(text["linecount"])) >= 600:
-                font_size_poem -= 2
-            else:
-                break
 
         self.author = text["author"]
         font_size_author = font_size_heading-1
@@ -298,7 +291,7 @@ class poems_page:
                              x=400, y=155, max_width=380, font_size=font_size_author)
 
                 display_text(screen, center=False, text="\n".join(
-                    text["lines"]), x=30, y=225, max_height=600, font_size=font_size_poem)
+                    text["lines"]), x=30, y=225, max_height=575, font_size=font_size_poem)
 
 
 class main_screen:
