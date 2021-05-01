@@ -191,8 +191,11 @@ class poems_page:
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if title_search_btn.isOver(mouse_pos):
                         name = search_by_title.get_text()
-                        text = Poem().poem_by_title(name)
-                        self.display_poem(text)
+                        if len(name.strip()) == 0:
+                            pass
+                        else:
+                            text = Poem().poem_by_title(name)
+                            self.display_poem(text)
                 title_search_btn.draw(screen,)
 
                 pygame.draw.rect(screen, (255, 255, 255), (75, 650, 425, 85))
@@ -214,8 +217,11 @@ class poems_page:
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if author_search_btn.isOver(mouse_pos):
                         name = search_by_author.get_text()
-                        text = Poem().poem_by_author(name)
-                        self.display_poem(text)
+                        if len(name.strip()) == 0:
+                            pass
+                        else:
+                            text = Poem().poem_by_author(name)
+                            self.display_poem(text)
                 author_search_btn.draw(screen,)
 
     def display_poem(self, text):
@@ -223,13 +229,21 @@ class poems_page:
         font_size_heading = 30
         while True:
             font = pygame.font.SysFont('comicsansms', font_size_heading)
-            self.text = font.render(self.heading, 1, (0, 0, 0))
-            if self.text.get_rect().width >= 780:
+            txt = font.render(self.heading, 1, (0, 0, 0))
+            if txt.get_rect().width >= 780:
                 font_size_heading -= 2
             else:
                 break
 
-        font_size_poem = font_size_heading-6
+        font_size_poem = 20
+
+        scroll = False
+        font = pygame.font.SysFont('comicsansms', font_size_poem)
+        txt = font.render(text["lines"][0], 1, (0, 0, 0))
+        if txt.get_rect().height * (int(text["linecount"])) >= 580:
+            poem_height = txt.get_rect().height * (int(text["linecount"]))
+            scroll = True
+        poem_y=225
 
         self.author = text["author"]
         font_size_author = font_size_heading-1
@@ -256,6 +270,28 @@ class poems_page:
                         running = False
 
                 screen.fill(BACKGROUND)
+
+                if scroll:
+                    if event.type==pygame.KEYDOWN:
+                        if event.key==pygame.K_DOWN:
+                            if poem_y >= -(poem_height-500):
+                                poem_y-=20
+                        if event.key==pygame.K_UP:
+                            if poem_y <= 225:
+                                poem_y+=20
+                        if event.key==pygame.K_PAGEDOWN:
+                            if poem_y >= -(poem_height-500):
+                                poem_y-=100
+                        if event.key==pygame.K_PAGEUP:
+                            if poem_y <= 225:
+                                poem_y+=100
+
+                display_text(screen, center=False, text="\n".join(
+                    text["lines"]), x=30, y=poem_y, font_size=font_size_poem)
+
+                pygame.draw.rect(screen, BACKGROUND, (0, 0, 800, 220))
+                pygame.draw.rect(screen, BACKGROUND, (0, 840, 800, 60))
+
                 heading_logo = pygame.transform.smoothscale(pygame.image.load(
                     "assets\\favicon_io\\android-chrome-512x512.png").convert_alpha(), (100, 100))
                 screen.blit(heading_logo, (350, 0))
@@ -289,9 +325,6 @@ class poems_page:
 
                 display_text(screen, center=False, text='- '+self.author,
                              x=400, y=155, max_width=380, font_size=font_size_author)
-
-                display_text(screen, center=False, text="\n".join(
-                    text["lines"]), x=30, y=225, max_height=575, font_size=font_size_poem)
 
 
 class main_screen:

@@ -43,35 +43,43 @@ class button():
 # GUI DISPLAY TEXT START
 class display_text:
     def __init__(self, screen, center=False, text="", x=0, y=0, max_width=0, max_height=0, font_family="comicsansms", font_size=17, font_color=(255, 255, 255)):
-        myfont = pygame.font.SysFont(font_family, font_size)
-        label = myfont.render(text, True, font_color)
-        if (label.get_rect().width) < 780:
-            if center:
-                x = (screen.get_size()[0]//2)-(label.get_rect().width//2)
-                screen.blit(label, (x, y))
-            else:
-                screen.blit(label, (x, y))
-        else:
-            pos = (x, y)
-            words = [word.split(' ') for word in text.splitlines()]
-            space = myfont.size(' ')[0]
-            if max_width==0:
-                max_width=screen.get_size()[0]
-                max_width -= x
-            if max_height==0:
-                max_height = screen.get_size()[1]
-                
-            for line in words:
-                for word in line:
-                    label = myfont.render(word, 0, font_color)
-                    word_width, word_height = label.get_size()
-                    if x + word_width >= max_width:
-                        x = pos[0]  # - (label.get_rect().width//2)
-                        y += word_height
+        try:
+            myfont = pygame.font.SysFont(font_family, font_size)
+            label = myfont.render(text, True, font_color)
+            if (label.get_rect().width) < 780:
+                if center:
+                    x = (screen.get_size()[0]//2)-(label.get_rect().width//2)
                     screen.blit(label, (x, y))
-                    x += word_width + space
-                x = pos[0]  # - (label.get_rect().width//2)
-                y += word_height
+                else:
+                    screen.blit(label, (x, y))
+            else:
+                pos = (x, y)
+                words = [word.split(' ') for word in text.splitlines()]
+                space = myfont.size(' ')[0]
+                if max_width==0:
+                    max_width=screen.get_size()[0]
+                    max_width -= x
+                if max_height==0:
+                    max_height = screen.get_size()[1]
+                    
+                for line in words:
+                    for word in line:
+                        label = myfont.render(word, 0, font_color)
+                        word_width, word_height = label.get_size()
+                        if x + word_width >= max_width:
+                            x = pos[0]  # - (label.get_rect().width//2)
+                            y += word_height
+                        screen.blit(label, (x, y))
+                        x += word_width + space
+                    x = pos[0]  # - (label.get_rect().width//2)
+                    y += word_height
+        except:
+            myfont = pygame.font.SysFont(font_family, font_size)
+            x,y=400,525
+            label = myfont.render("Please, try again", True, font_color)
+            x = (screen.get_size()[0]//2)-(label.get_rect().width//2)
+            screen.blit(label, (x, y))
+            
 
 
 # GUI DISPLAY TEXT END
