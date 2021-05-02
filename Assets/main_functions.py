@@ -1,6 +1,7 @@
 from lyricsgenius import Genius
 import requests
 import webbrowser as web
+from bs4 import BeautifulSoup as bs
 import sys
 import random
 import json
@@ -23,10 +24,10 @@ if data["first_run"] == True:
 
 def download_image(url):
     response = requests.get(url)
-    name = "-".join(url.split("/")[2:-1])
+    name = "-".join(url.split("/")[2:])
     with open(f"temp\{name}.png", "wb") as f:
         f.write(response.content)
-    return name
+    return name+'.png'
 
 
 class Anime:
@@ -97,26 +98,25 @@ class Lyrics:
     def __init__(self):
         self.genius = Genius(data["geniusAPI"]["token"])
 
-    def searchSong(self, song, artist=''):
-        if artist != '':
-            try:
-                request = requests.get(
-                    f'https://api.lyrics.ovh/v1/{artist}/{song}')
-                return (json.loads(request.content.decode())['lyrics'])
-            except:
-                pass
+    def searchLyrics(self, name):
+        try:
+            song,artist=(name.strip()).split(',')
+        except:
+            song,artist=name.strip(),""
+
         self.song = self.genius.search_song(song, artist)
-        return song.lyrics
+        song_info={"title":self.song.title,"artist":self.song.artist,"lyrics":self.song.lyrics,"thumbnail":self.song.song_art_image_thumbnail_url,"linecount":(self.song.lyrics).count('\n')}
+        return song_info
 
     def serachSongByLyrics(self, lyr):
         request = self.genius.search_lyrics(lyr)
         ans = []
         for hit in request['sections'][0]['hits']:
-            ans.append(hit['result']['title'])
+            ans.append([hit['result']['full_title'],hit['result']['song_art_image_thumbnail_url']])
         return ans
 
-    def saveLyrics(self, soneName, songLyrics):
-        with open(f'{soneName}.txt', 'w') as f:
+    def saveLyrics(self, songName, songLyrics):
+        with open(f'{songName }.txt', 'w') as f:
             f.write(songLyrics)
 
 
@@ -186,4 +186,5 @@ class Joke:
 
 
 if __name__=="__main__":
-    pass
+    data=Lyrics().searchLyrics("shy away")
+    print(data['lyrics'])

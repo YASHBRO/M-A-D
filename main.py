@@ -238,12 +238,12 @@ class poems_page:
         font_size_poem = 20
 
         scroll = False
-        font = pygame.font.SysFont('comicsansms', font_size_poem)
+        font = pygame.font.SysFont('comicsansms', 20)
         txt = font.render(text["lines"][0], 1, (0, 0, 0))
         if txt.get_rect().height * (int(text["linecount"])) >= 580:
             poem_height = txt.get_rect().height * (int(text["linecount"]))
             scroll = True
-        poem_y=225
+        poem_y = 225
 
         self.author = text["author"]
         font_size_author = font_size_heading-1
@@ -272,19 +272,19 @@ class poems_page:
                 screen.fill(BACKGROUND)
 
                 if scroll:
-                    if event.type==pygame.KEYDOWN:
-                        if event.key==pygame.K_DOWN:
+                    if event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_DOWN:
                             if poem_y >= -(poem_height-500):
-                                poem_y-=20
-                        if event.key==pygame.K_UP:
+                                poem_y -= 20
+                        if event.key == pygame.K_UP:
                             if poem_y <= 225:
-                                poem_y+=20
-                        if event.key==pygame.K_PAGEDOWN:
+                                poem_y += 20
+                        if event.key == pygame.K_PAGEDOWN:
                             if poem_y >= -(poem_height-500):
-                                poem_y-=100
-                        if event.key==pygame.K_PAGEUP:
+                                poem_y -= 100
+                        if event.key == pygame.K_PAGEUP:
                             if poem_y <= 225:
-                                poem_y+=100
+                                poem_y += 100
 
                 display_text(screen, center=False, text="\n".join(
                     text["lines"]), x=30, y=poem_y, font_size=font_size_poem)
@@ -327,6 +327,188 @@ class poems_page:
                              x=400, y=155, max_width=380, font_size=font_size_author)
 
 
+class lyrics_page:
+    def __init__(self):
+        running = True
+        clock = pygame.time.Clock()
+        search_by_song = input_text(
+            text_color=(0, 0, 0), cursor_color=(0, 0, 10))
+        search_by_lyrics = input_text(
+            text_color=(0, 0, 0), cursor_color=(0, 0, 10))
+        while running:
+            mouse_pos = pygame.mouse.get_pos()
+            pygame.display.update()
+            clock.tick()
+            events = pygame.event.get()
+            for event in events:
+                if event.type == pygame.QUIT:
+                    exit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        running = False
+
+                screen.fill(BACKGROUND)
+                heading_logo = pygame.transform.smoothscale(pygame.image.load(
+                    "assets\\favicon_io\\android-chrome-512x512.png").convert_alpha(), (100, 100))
+                screen.blit(heading_logo, (350, 0))
+                heading = button(color=(19, 0, 166), x=0, y=100,
+                                 width=800, height=50, text="LYRICS", font_color=(255, 255, 255), font_size=30)
+                heading.draw(screen)
+
+                back_button = button(
+                    color=(52, 196, 0), x=10, y=850, width=75, height=45, text="BACK", font_size=15)
+                if event.type == pygame.MOUSEMOTION:
+                    if back_button.isOver(mouse_pos):
+                        back_button.color = (68, 255, 0)
+                    else:
+                        back_button.color = (52, 196, 0)
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if back_button.isOver(mouse_pos):
+                        running = False
+                back_button.draw(screen)
+
+                display_text(
+                    screen, center=True, text="Get Lyrics by Searching the Name of Song", x=200, y=250, font_size=25)
+
+                pygame.draw.rect(screen, (255, 255, 255), (75, 350, 425, 85))
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if is_over(mouse_pos, 75, 350, 425, 85):
+                        search_by_song.active = True
+                    else:
+                        search_by_song.active = False
+                search_by_song.update(events)
+                screen.blit(search_by_song.get_surface(), (80, 380))
+
+                song_search_btn = button(
+                    color=(52, 196, 0), x=500, y=350, width=225, height=85, font_color=(255, 255, 255), text="Search Lyrics", font_size=23)
+                if event.type == pygame.MOUSEMOTION:
+                    if song_search_btn.isOver(mouse_pos):
+                        song_search_btn.color = (68, 255, 0)
+                    else:
+                        song_search_btn.color = (52, 196, 0)
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if song_search_btn.isOver(mouse_pos):
+                        name = search_by_song.get_text()
+                        if len(name.strip()) == 0:
+                            pass
+                        else:
+                            text=Lyrics().searchLyrics(name)
+                            self.display_lyrics(text)
+                song_search_btn.draw(screen)
+                display_text(screen,center=True,text=r'{optional} : mention artist after the song name seperated by ","',x=400,y=445,font_size=17)
+
+
+                display_text(
+                    screen, center=True, text="Search Song Name by writing a part of Lyrics", x=200, y=550, font_size=25)
+
+                pygame.draw.rect(screen, (255, 255, 255), (75, 650, 425, 85))
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if is_over(mouse_pos, 75, 650, 425, 85):
+                        search_by_lyrics.active = True
+                    else:
+                        search_by_lyrics.active = False
+                search_by_lyrics.update(events)
+                screen.blit(search_by_lyrics.get_surface(), (80, 680))
+
+                lyrics_search_btn = button(
+                    color=(52, 196, 0), x=500, y=650, width=225, height=85, font_color=(255, 255, 255), text="Search Song Name", font_size=23)
+                if event.type == pygame.MOUSEMOTION:
+                    if lyrics_search_btn.isOver(mouse_pos):
+                        lyrics_search_btn.color = (68, 255, 0)
+                    else:
+                        lyrics_search_btn.color = (52, 196, 0)
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if lyrics_search_btn.isOver(mouse_pos):
+                        name = search_by_lyrics.get_text()
+                        if len(name.strip()) == 0:
+                            pass
+                        else:
+                            pass
+                lyrics_search_btn.draw(screen)
+
+    def display_lyrics(self, text):
+        running = True
+        clock = pygame.time.Clock()
+
+        self.heading = text["title"]
+        font_size_heading = 30
+        while True:
+            font = pygame.font.SysFont('comicsansms', font_size_heading)
+            txt = font.render(self.heading, 1, (0, 0, 0))
+            if txt.get_rect().width >= 780:
+                font_size_heading -= 2
+            else:
+                break
+        
+        scroll = False
+        font = pygame.font.SysFont('comicsansms', 20)
+        txt = font.render(text["lyrics"][0:5], 1, (0, 0, 0))
+        if txt.get_rect().height * (int(text["linecount"])) >= 580:
+            lyrics_height = txt.get_rect().height * (int(text["linecount"]))
+            scroll = True
+        lyrics_y = 225
+
+        print(lyrics_height)
+
+        while running:
+            mouse_pos = pygame.mouse.get_pos()
+            pygame.display.update()
+            clock.tick()
+            events = pygame.event.get()
+            for event in events:
+                if event.type == pygame.QUIT:
+                    exit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        running = False
+
+                screen.fill(BACKGROUND)
+                
+                if scroll:
+                    if event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_DOWN:
+                            if lyrics_y >= -(lyrics_height-500):
+                                lyrics_y -= 20
+                        if event.key == pygame.K_UP:
+                            if lyrics_y <= 225:
+                                lyrics_y += 20
+                        if event.key == pygame.K_PAGEDOWN:
+                            if lyrics_y >= -(lyrics_height-500):
+                                lyrics_y -= 100
+                        if event.key == pygame.K_PAGEUP:
+                            if lyrics_y <= 225:
+                                lyrics_y += 100
+
+                display_text(screen, center=False, text=text["lyrics"], x=30, y=lyrics_y, font_size=20)
+
+                pygame.draw.rect(screen, BACKGROUND, (0, 0, 800, 220))
+                pygame.draw.rect(screen, BACKGROUND, (0, 840, 800, 60))
+
+                heading_logo = pygame.transform.smoothscale(pygame.image.load(
+                    "assets\\favicon_io\\android-chrome-512x512.png").convert_alpha(), (100, 100))
+                screen.blit(heading_logo, (350, 0))
+                heading = button(color=(19, 0, 166), x=0, y=100,
+                                 width=800, height=50, text=text['title'], font_color=(255, 255, 255), font_size=font_size_heading)
+                heading.draw(screen)
+
+                display_text(screen, center=False, text='- '+text['artist'], x=400, y=155, max_width=380, font_size=font_size_heading-5)
+
+                back_button = button(
+                    color=(52, 196, 0), x=10, y=850, width=75, height=45, text="BACK", font_size=15)
+                if event.type == pygame.MOUSEMOTION:
+                    if back_button.isOver(mouse_pos):
+                        back_button.color = (68, 255, 0)
+                    else:
+                        back_button.color = (52, 196, 0)
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if back_button.isOver(mouse_pos):
+                        running = False
+                back_button.draw(screen)
+
+
+
+
+
 class main_screen:
     def __init__(self, event):
         screen.fill(BACKGROUND)
@@ -336,42 +518,45 @@ class main_screen:
         screen.blit(main_logo, (200, 5))
 
         # BUTTON 1
-        suggestion_button = button(
+        song_button = button(
             color=(14, 14, 192), x=300, y=450, width=200, height=40, font_color=(255, 255, 255), text="SONGS")
         if event.type == pygame.MOUSEMOTION:
-            if suggestion_button.isOver(mouse_pos):
-                suggestion_button.color = (150, 150, 255)
+            if song_button.isOver(mouse_pos):
+                song_button.color = (150, 150, 255)
         if event.type == pygame.MOUSEBUTTONDOWN:
-            if suggestion_button.isOver(mouse_pos):
+            if song_button.isOver(mouse_pos):
                 render = song_page()
-        suggestion_button.draw(screen)
+        song_button.draw(screen)
 
         # BUTTON 2
-        suggestion_button = button(
+        poem_button = button(
             color=(14, 14, 192), x=295, y=520, width=210, height=40, font_color=(255, 255, 255), text="POEMS")
         if event.type == pygame.MOUSEMOTION:
-            if suggestion_button.isOver(mouse_pos):
-                suggestion_button.color = (150, 150, 255)
+            if poem_button.isOver(mouse_pos):
+                poem_button.color = (150, 150, 255)
         if event.type == pygame.MOUSEBUTTONDOWN:
-            if suggestion_button.isOver(mouse_pos):
+            if poem_button.isOver(mouse_pos):
                 render = poems_page()
-        suggestion_button.draw(screen)
+        poem_button.draw(screen)
 
         # BUTTON 3
-        suggestion_button = button(
+        lyric_button = button(
             color=(14, 14, 192), x=290, y=590, width=220, font_color=(255, 255, 255), height=40, text="LYRICS")
         if event.type == pygame.MOUSEMOTION:
-            if suggestion_button.isOver(mouse_pos):
-                suggestion_button.color = (150, 150, 255)
-        suggestion_button.draw(screen)
+            if lyric_button.isOver(mouse_pos):
+                lyric_button.color = (150, 150, 255)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if lyric_button.isOver(mouse_pos):
+                render = lyrics_page()
+        lyric_button.draw(screen)
 
         # BUTTON 4
-        suggestion_button = button(
+        quote_button = button(
             color=(14, 14, 192), x=285, y=660, width=230, height=40, font_color=(255, 255, 255), text="QUOTES")
         if event.type == pygame.MOUSEMOTION:
-            if suggestion_button.isOver(mouse_pos):
-                suggestion_button.color = (150, 150, 255)
-        suggestion_button.draw(screen)
+            if quote_button.isOver(mouse_pos):
+                quote_button.color = (150, 150, 255)
+        quote_button.draw(screen)
 
         # BUTTON 5
         suggestion_button = button(
