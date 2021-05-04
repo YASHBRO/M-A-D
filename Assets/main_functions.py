@@ -112,7 +112,7 @@ class Lyrics:
         request = self.genius.search_lyrics(lyr)
         ans = []
         for hit in request['sections'][0]['hits']:
-            ans.append([hit['result']['full_title'],hit['result']['song_art_image_thumbnail_url']])
+            ans.append((hit['result']['full_title']).split(' by'))
         return ans
 
     def saveLyrics(self, songName, songLyrics):
@@ -186,5 +186,5 @@ class Joke:
 
 
 if __name__=="__main__":
-    data=Lyrics().searchLyrics("shy away")
-    print(data['lyrics'])
+    data=Lyrics().serachSongByLyrics("dont you shy away")
+    print(data)
