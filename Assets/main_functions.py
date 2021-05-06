@@ -54,8 +54,11 @@ class Suggestion:
     def __init__(self):
         self.key = "409313-MAP-WUR9L2ML"
 
-    def similar(self, name, category):
-        url = f"https://tastedive.com/api/similar?q={name}&type={category}&info=1&k={self.key}"
+    def similar(self, name, category=''):
+        if category=='':
+            url=f"https://tastedive.com/api/similar?q={name}&info=1&k={self.key}"
+        else:
+            url = f"https://tastedive.com/api/similar?q={name}&type={category}&info=1&k={self.key}"
         response = requests.get(url)
         cont = response.content.decode()
         data = json.loads(cont)["Similar"]
@@ -186,5 +189,6 @@ class Joke:
 
 
 if __name__=="__main__":
-    data=Lyrics().serachSongByLyrics("dont you shy away")
-    print(data)
+    data=Suggestion().similar('Demon-Slayer-Kimetsu-No-Yaiba',category="shows")
+    for i in range(1):
+        print(data['Results'])

@@ -1,7 +1,7 @@
 from assets.GUI_components import *
 from assets.main_functions import *
 import pygame
-import random
+import random, subprocess
 
 
 def is_over(pos, x, y, width, height):
@@ -26,6 +26,7 @@ class song_page:
             events = pygame.event.get()
             for event in events:
                 if event.type == pygame.QUIT:
+                    subprocess.run("del /q /f temp\*.png", shell=True)
                     exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
@@ -44,8 +45,6 @@ class song_page:
                 if event.type == pygame.MOUSEMOTION:
                     if back_button.isOver(mouse_pos):
                         back_button.color = (68, 255, 0)
-                    else:
-                        back_button.color = (52, 196, 0)
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if back_button.isOver(mouse_pos):
                         running = False
@@ -75,8 +74,6 @@ class song_page:
                 if event.type == pygame.MOUSEMOTION:
                     if play_on_yt.isOver(mouse_pos):
                         play_on_yt.color = (68, 255, 0)
-                    else:
-                        play_on_yt.color = (52, 196, 0)
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if play_on_yt.isOver(mouse_pos):
                         searched_text = search_box.get_text()
@@ -91,8 +88,6 @@ class song_page:
                 if event.type == pygame.MOUSEMOTION:
                     if download_video.isOver(mouse_pos):
                         download_video.color = (68, 255, 0)
-                    else:
-                        download_video.color = (52, 196, 0)
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if download_video.isOver(mouse_pos):
                         searched_text = search_box.get_text()
@@ -107,8 +102,6 @@ class song_page:
                 if event.type == pygame.MOUSEMOTION:
                     if download_audio.isOver(mouse_pos):
                         download_audio.color = (68, 255, 0)
-                    else:
-                        download_audio.color = (52, 196, 0)
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if download_audio.isOver(mouse_pos):
                         searched_text = search_box.get_text()
@@ -134,6 +127,7 @@ class poems_page:
             events = pygame.event.get()
             for event in events:
                 if event.type == pygame.QUIT:
+                    subprocess.run("del /q /f temp\*.png", shell=True)
                     exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
@@ -152,8 +146,6 @@ class poems_page:
                 if event.type == pygame.MOUSEMOTION:
                     if back_button.isOver(mouse_pos):
                         back_button.color = (68, 255, 0)
-                    else:
-                        back_button.color = (52, 196, 0)
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if back_button.isOver(mouse_pos):
                         running = False
@@ -164,8 +156,6 @@ class poems_page:
                 if event.type == pygame.MOUSEMOTION:
                     if random_poem.isOver(mouse_pos):
                         random_poem.color = (68, 255, 0)
-                    else:
-                        random_poem.color = (52, 196, 0)
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if random_poem.isOver(mouse_pos):
                         text = Poem().random_poem()
@@ -186,8 +176,6 @@ class poems_page:
                 if event.type == pygame.MOUSEMOTION:
                     if title_search_btn.isOver(mouse_pos):
                         title_search_btn.color = (68, 255, 0)
-                    else:
-                        title_search_btn.color = (52, 196, 0)
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if title_search_btn.isOver(mouse_pos):
                         name = search_by_title.get_text()
@@ -212,8 +200,6 @@ class poems_page:
                 if event.type == pygame.MOUSEMOTION:
                     if author_search_btn.isOver(mouse_pos):
                         author_search_btn.color = (68, 255, 0)
-                    else:
-                        author_search_btn.color = (52, 196, 0)
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if author_search_btn.isOver(mouse_pos):
                         name = search_by_author.get_text()
@@ -264,6 +250,7 @@ class poems_page:
             events = pygame.event.get()
             for event in events:
                 if event.type == pygame.QUIT:
+                    subprocess.run("del /q /f temp\*.png", shell=True)
                     exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
@@ -304,8 +291,6 @@ class poems_page:
                 if event.type == pygame.MOUSEMOTION:
                     if back_button.isOver(mouse_pos):
                         back_button.color = (68, 255, 0)
-                    else:
-                        back_button.color = (52, 196, 0)
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if back_button.isOver(mouse_pos):
                         running = False
@@ -316,8 +301,6 @@ class poems_page:
                 if event.type == pygame.MOUSEMOTION:
                     if download_button.isOver(mouse_pos):
                         download_button.color = (68, 255, 0)
-                    else:
-                        download_button.color = (52, 196, 0)
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if download_button.isOver(mouse_pos):
                         Poem().download_poem(text)
@@ -342,6 +325,7 @@ class lyrics_page:
             events = pygame.event.get()
             for event in events:
                 if event.type == pygame.QUIT:
+                    subprocess.run("del /q /f temp\*.png", shell=True)
                     exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
@@ -360,8 +344,6 @@ class lyrics_page:
                 if event.type == pygame.MOUSEMOTION:
                     if back_button.isOver(mouse_pos):
                         back_button.color = (68, 255, 0)
-                    else:
-                        back_button.color = (52, 196, 0)
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if back_button.isOver(mouse_pos):
                         running = False
@@ -415,8 +397,6 @@ class lyrics_page:
                 if event.type == pygame.MOUSEMOTION:
                     if lyrics_search_btn.isOver(mouse_pos):
                         lyrics_search_btn.color = (68, 255, 0)
-                    else:
-                        lyrics_search_btn.color = (52, 196, 0)
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if lyrics_search_btn.isOver(mouse_pos):
                         name = search_by_lyrics.get_text()
@@ -449,7 +429,7 @@ class lyrics_page:
             scroll = True
         lyrics_y = 225
 
-        thumbnail=download_image(text['thumbnail'])
+        thumbnail = download_image(text['thumbnail'])
 
         while running:
             mouse_pos = pygame.mouse.get_pos()
@@ -458,6 +438,7 @@ class lyrics_page:
             events = pygame.event.get()
             for event in events:
                 if event.type == pygame.QUIT:
+                    subprocess.run("del /q /f temp\*.png", shell=True)
                     exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
@@ -480,11 +461,12 @@ class lyrics_page:
                             if lyrics_y <= 225:
                                 lyrics_y += 100
 
-
-                song_thumbnail=pygame.transform.smoothscale(pygame.image.load(f"temp\\{thumbnail}").convert_alpha(), (200, 200))
+                song_thumbnail = pygame.transform.smoothscale(
+                    pygame.image.load(f"temp\\{thumbnail}").convert_alpha(), (200, 200))
                 screen.blit(song_thumbnail, (590, 210))
 
-                display_text(screen, center=False,text=text["lyrics"], x=30, y=lyrics_y, font_size=20)
+                display_text(screen, center=False,
+                             text=text["lyrics"], x=30, y=lyrics_y, font_size=20)
 
                 pygame.draw.rect(screen, BACKGROUND, (0, 0, 800, 200))
                 pygame.draw.rect(screen, BACKGROUND, (0, 840, 800, 60))
@@ -504,8 +486,6 @@ class lyrics_page:
                 if event.type == pygame.MOUSEMOTION:
                     if back_button.isOver(mouse_pos):
                         back_button.color = (68, 255, 0)
-                    else:
-                        back_button.color = (52, 196, 0)
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if back_button.isOver(mouse_pos):
                         running = False
@@ -516,14 +496,13 @@ class lyrics_page:
                 if event.type == pygame.MOUSEMOTION:
                     if download_button.isOver(mouse_pos):
                         download_button.color = (68, 255, 0)
-                    else:
-                        download_button.color = (52, 196, 0)
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if download_button.isOver(mouse_pos):
-                        Lyrics().saveLyrics(text['title'],str(text['title']+'\n'+text['artist']+'\n\n'+text['lyrics']))
+                        Lyrics().saveLyrics(text['title'], str(
+                            text['title']+'\n'+text['artist']+'\n\n'+text['lyrics']))
                 download_button.draw(screen)
 
-    def display_song_list(self,text):
+    def display_song_list(self, text):
         running = True
         clock = pygame.time.Clock()
 
@@ -534,17 +513,19 @@ class lyrics_page:
             events = pygame.event.get()
             for event in events:
                 if event.type == pygame.QUIT:
+                    subprocess.run("del /q /f temp\*.png", shell=True)
                     exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         running = False
 
                 screen.fill(BACKGROUND)
-                init_y=250
+                init_y = 250
                 for i in range(10):
-                    display_text(screen,center=False,text=str(i+1)+'.  '+text[i][0]+'  by '+text[i][1],x=100,y=init_y)
-                    init_y+=50
-                
+                    display_text(screen, center=False, text=str(
+                        i+1)+'.  '+text[i][0]+'  by '+text[i][1], x=100, y=init_y)
+                    init_y += 50
+
                 pygame.draw.rect(screen, BACKGROUND, (0, 0, 800, 150))
                 pygame.draw.rect(screen, BACKGROUND, (0, 840, 800, 60))
 
@@ -560,17 +541,384 @@ class lyrics_page:
                 if event.type == pygame.MOUSEMOTION:
                     if back_button.isOver(mouse_pos):
                         back_button.color = (68, 255, 0)
-                    else:
-                        back_button.color = (52, 196, 0)
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if back_button.isOver(mouse_pos):
                         running = False
                 back_button.draw(screen)
 
-                
-                
+
+class quotes_page:
+    def __init__(self, text):
+        content = text['content']
+        author = text['author']
+        running = True
+        clock = pygame.time.Clock()
+        while running:
+            mouse_pos = pygame.mouse.get_pos()
+            pygame.display.update()
+            clock.tick()
+            events = pygame.event.get()
+            for event in events:
+                if event.type == pygame.QUIT:
+                    subprocess.run("del /q /f temp\*.png", shell=True)
+                    exit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        running = False
+
+                screen.fill(BACKGROUND)
+                heading_logo = pygame.transform.smoothscale(pygame.image.load(
+                    "assets\\favicon_io\\android-chrome-512x512.png").convert_alpha(), (100, 100))
+                screen.blit(heading_logo, (350, 0))
+                heading = button(color=(19, 0, 166), x=0, y=100,
+                                 width=800, height=50, text="QUOTES", font_color=(255, 255, 255), font_size=30)
+                heading.draw(screen)
+
+                back_button = button(
+                    color=(52, 196, 0), x=10, y=850, width=75, height=45, text="BACK", font_size=15)
+                if event.type == pygame.MOUSEMOTION:
+                    if back_button.isOver(mouse_pos):
+                        back_button.color = (68, 255, 0)
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if back_button.isOver(mouse_pos):
+                        running = False
+                back_button.draw(screen)
+
+                random_quote_gen = button(
+                    color=(52, 196, 0), x=150, y=200, width=500, height=100, text="Generate Random Quote", font_color=(255, 255, 255))
+                if event.type == pygame.MOUSEMOTION:
+                    if random_quote_gen.isOver(mouse_pos):
+                        random_quote_gen.color = (68, 255, 0)
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if random_quote_gen.isOver(mouse_pos):
+                        text = Quotes().random_quotes()
+                        content = text['content']
+                        author = text['author']
+                random_quote_gen.draw(screen)
+
+                display_text(screen, center=False, text=content,
+                             x=100, y=450, font_size=20)
+
+                display_text(screen, center=False, text='- ' +
+                             author, x=400, y=650, max_width=350)
 
 
+class similar_page:
+    def __init__(self):
+        running = True
+        clock = pygame.time.Clock()
+        suggestion_text = input_text(
+            text_color=(0, 0, 0), cursor_color=(0, 0, 10))
+        message = ""
+        while running:
+            mouse_pos = pygame.mouse.get_pos()
+            pygame.display.update()
+            clock.tick()
+            events = pygame.event.get()
+            for event in events:
+                if event.type == pygame.QUIT:
+                    subprocess.run("del /q /f temp\*.png", shell=True)
+                    exit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        running = False
+
+                screen.fill(BACKGROUND)
+                heading_logo = pygame.transform.smoothscale(pygame.image.load(
+                    "assets\\favicon_io\\android-chrome-512x512.png").convert_alpha(), (100, 100))
+                screen.blit(heading_logo, (350, 0))
+                heading = button(color=(19, 0, 166), x=0, y=100,
+                                 width=800, height=50, text="SUGGESTIONS", font_color=(255, 255, 255), font_size=30)
+                heading.draw(screen)
+
+                back_button = button(
+                    color=(52, 196, 0), x=10, y=850, width=75, height=45, text="BACK", font_size=15)
+                if event.type == pygame.MOUSEMOTION:
+                    if back_button.isOver(mouse_pos):
+                        back_button.color = (68, 255, 0)
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if back_button.isOver(mouse_pos):
+                        running = False
+                back_button.draw(screen)
+
+                display_text(screen, center=False,
+                             text="Search for :", x=50, y=210, font_size=20)
+
+                pygame.draw.rect(screen, (255, 255, 255), (200, 200, 500, 50))
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if is_over(mouse_pos, 200, 200, 400, 50):
+                        suggestion_text.active = True
+                    else:
+                        suggestion_text.active = False
+                suggestion_text.update(events)
+                screen.blit(suggestion_text.get_surface(), (210, 210))
+
+                display_text(
+                    screen, center=True, text="What you're looking for is :", x=400, y=325, font_size=22)
+
+                display_text(screen, center=True, text=message, x=400, y=775)
+
+                music_btn = button(color=(52, 196, 0), x=100, y=400, width=290, height=50,
+                                   text="Music Artist", font_color=(255, 255, 255), font_size=23)
+                if event.type == pygame.MOUSEMOTION:
+                    if music_btn.isOver(mouse_pos):
+                        music_btn.color = (68, 255, 0)
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if music_btn.isOver(mouse_pos):
+                        name = suggestion_text.get_text()
+                        data = Suggestion().similar(name=name, category="music")
+                        if data == 0:
+                            message = "Can't find such artist, try again"
+                        else:
+                            message = ''
+                            render = self.suggested_page(data)
+                music_btn.draw(screen)
+
+                tv_show_btn = button(color=(52, 196, 0), x=100, y=500, width=290,
+                                     height=50, text="TV Show", font_color=(255, 255, 255), font_size=23)
+                if event.type == pygame.MOUSEMOTION:
+                    if tv_show_btn.isOver(mouse_pos):
+                        tv_show_btn.color = (68, 255, 0)
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if tv_show_btn.isOver(mouse_pos):
+                        name = suggestion_text.get_text()
+                        data = Suggestion().similar(name=name, category="shows")
+                        if data == 0:
+                            message = "Can't find such show, try again"
+                        else:
+                            message = ''
+                            render = self.suggested_page(data)
+                tv_show_btn.draw(screen)
+
+                books_btn = button(color=(52, 196, 0), x=100, y=600, width=290,
+                                   height=50, text="Book", font_color=(255, 255, 255), font_size=23)
+                if event.type == pygame.MOUSEMOTION:
+                    if books_btn.isOver(mouse_pos):
+                        books_btn.color = (68, 255, 0)
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if books_btn.isOver(mouse_pos):
+                        name = suggestion_text.get_text()
+                        data = Suggestion().similar(name=name, category="books")
+                        if data == 0:
+                            message = "Can't find such book, try again"
+                        else:
+                            message = ''
+                            render = self.suggested_page(data)
+                books_btn.draw(screen)
+
+                games_btn = button(color=(52, 196, 0), x=100, y=700, width=290,
+                                   height=50, text="Game", font_color=(255, 255, 255), font_size=23)
+                if event.type == pygame.MOUSEMOTION:
+                    if games_btn.isOver(mouse_pos):
+                        games_btn.color = (68, 255, 0)
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if games_btn.isOver(mouse_pos):
+                        name = suggestion_text.get_text()
+                        data = Suggestion().similar(name=name, category="games")
+                        if data == 0:
+                            message = "Can't find such game, try again"
+                        else:
+                            message = ''
+                            render = self.suggested_page(data)
+                games_btn.draw(screen)
+
+                movie_btn = button(color=(52, 196, 0), x=410, y=400, width=290,
+                                   height=50, text="Movie", font_color=(255, 255, 255), font_size=23)
+                if event.type == pygame.MOUSEMOTION:
+                    if movie_btn.isOver(mouse_pos):
+                        movie_btn.color = (68, 255, 0)
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if movie_btn.isOver(mouse_pos):
+                        name = suggestion_text.get_text()
+                        data = Suggestion().similar(name=name, category="movies")
+                        if data == 0:
+                            message = "Can't find such movie, try again"
+                        else:
+                            message = ''
+                            render = self.suggested_page(data)
+                movie_btn.draw(screen)
+
+                podcast_btn = button(color=(52, 196, 0), x=410, y=500, width=290,
+                                     height=50, text="Podcast", font_color=(255, 255, 255), font_size=23)
+                if event.type == pygame.MOUSEMOTION:
+                    if podcast_btn.isOver(mouse_pos):
+                        podcast_btn.color = (68, 255, 0)
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if podcast_btn.isOver(mouse_pos):
+                        name = suggestion_text.get_text()
+                        data = Suggestion().similar(name=name, category="podcasts")
+                        if data == 0:
+                            message = ''
+                            message = "Can't find such podcast, try again"
+                        else:
+                            render = self.suggested_page(data)
+                podcast_btn.draw(screen)
+
+                author_btn = button(color=(52, 196, 0), x=410, y=600, width=290,
+                                    height=50, text="Author", font_color=(255, 255, 255), font_size=23)
+                if event.type == pygame.MOUSEMOTION:
+                    if author_btn.isOver(mouse_pos):
+                        author_btn.color = (68, 255, 0)
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if author_btn.isOver(mouse_pos):
+                        name = suggestion_text.get_text()
+                        data = Suggestion().similar(name=name, category="authors")
+                        if data == 0:
+                            message = "Can't find such author, try again"
+                        else:
+                            message = ''
+                            render = self.suggested_page(data)
+                author_btn.draw(screen)
+
+                misc_btn = button(color=(52, 196, 0), x=410, y=700, width=290, height=50,
+                                  text="Miscellaneous", font_color=(255, 255, 255), font_size=23)
+                if event.type == pygame.MOUSEMOTION:
+                    if misc_btn.isOver(mouse_pos):
+                        misc_btn.color = (68, 255, 0)
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if misc_btn.isOver(mouse_pos):
+                        name = suggestion_text.get_text()
+                        data = Suggestion().similar(name=name, category="")
+                        if data == 0:
+                            message = "Can't find such thing, try again"
+                        else:
+                            message = ''
+                            render = self.suggested_page(data)
+                misc_btn.draw(screen)
+
+    def suggested_page(self, text):
+        running = True
+        clock = pygame.time.Clock()
+        while running:
+            mouse_pos = pygame.mouse.get_pos()
+            pygame.display.update()
+            clock.tick()
+            events = pygame.event.get()
+            for event in events:
+                if event.type == pygame.QUIT:
+                    subprocess.run("del /q /f temp\*.png", shell=True)
+                    exit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        running = False
+
+                screen.fill(BACKGROUND)
+
+                heading_logo = pygame.transform.smoothscale(pygame.image.load("assets\\favicon_io\\android-chrome-512x512.png").convert_alpha(), (100, 100))
+                screen.blit(heading_logo, (350, 0))
+                heading = button(color=(19, 0, 166), x=0, y=100,width=800, height=50, text=(text['Info'][0]["Type"]).capitalize()+" Similar to "+text['Info'][0]['Name'], font_color=(255, 255, 255), font_size=25)
+                heading.draw(screen)
+
+                back_button = button(color=(52, 196, 0), x=10, y=850, width=75, height=45, text="BACK", font_size=15)
+                if event.type == pygame.MOUSEMOTION:
+                    if back_button.isOver(mouse_pos):
+                        back_button.color = (68, 255, 0)
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if back_button.isOver(mouse_pos):
+                        running = False
+                back_button.draw(screen) 
+                
+                gap=68
+
+                n=len(text['Results'])
+
+                for i in range(0,n//2,1):
+                    exec("sug_%i=button(color=(14, 14, 192),x=10,y=(175+(%i*%i)),width=380,height=50,text=str(%i+1)+'. '+text['Results'][%i]['Name'],font_color=(255,255,255),font_size=17)" % (i,gap,i,i,i))
+                    exec("""if event.type == pygame.MOUSEMOTION:
+                        if sug_%i.isOver(mouse_pos):
+                            sug_%i.color = (150, 150, 255)""" % (i,i) )
+                    exec("""if event.type == pygame.MOUSEBUTTONDOWN:
+                        if sug_%i.isOver(mouse_pos):
+                                render = self.suggestion_open(text['Results'][%i])""" % (i,i))
+                    exec("""sug_%i.draw(screen)""" % (i))
+                
+                for i in range(n//2,n,1):
+                    exec("sug_%i=button(color=(14, 14, 192),x=410,y=(175+(%i*%i)),width=380,height=50,text=str(%i+1)+'. '+text['Results'][i]['Name'],font_color=(255,255,255),font_size=17)" % (i,gap,i-10,i))
+                    exec("""if event.type == pygame.MOUSEMOTION:
+                        if sug_%i.isOver(mouse_pos):
+                            sug_%i.color = (150, 150, 255)""" % (i,i) )
+                    exec("""if event.type == pygame.MOUSEBUTTONDOWN:
+                        if sug_%i.isOver(mouse_pos):
+                                render = self.suggestion_open(text['Results'][%i])""" % (i,i))
+                    exec("""sug_%i.draw(screen)""" % i)
+
+    def suggestion_open(self,text):
+        running = True
+        clock = pygame.time.Clock()
+        init_y=300
+
+        while running:
+            mouse_pos = pygame.mouse.get_pos()
+            pygame.display.update()
+            clock.tick()
+            events = pygame.event.get()
+            for event in events:
+                if event.type == pygame.QUIT:
+                    subprocess.run("del /q /f temp\*.png", shell=True)
+                    exit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        running = False
+                
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_DOWN:
+                        if init_y >= -300:
+                            init_y -= 20
+                    if event.key == pygame.K_UP:
+                        if init_y <= 300:
+                            init_y += 20
+                    if event.key == pygame.K_PAGEDOWN:
+                        if init_y >= -300:
+                            init_y -= 100
+                    if event.key == pygame.K_PAGEUP:
+                        if init_y <= 300:
+                            init_y += 100
+
+                screen.fill(BACKGROUND)
+
+                display_text(screen,center=False,text=text['wTeaser'],x=100,y=init_y,font_size=20)
+
+                pygame.draw.rect(screen, (BACKGROUND), (0,0,800,280))
+
+                heading_logo = pygame.transform.smoothscale(pygame.image.load("assets\\favicon_io\\android-chrome-512x512.png").convert_alpha(), (100, 100))
+                screen.blit(heading_logo, (350, 0))
+                heading = button(color=(19, 0, 166), x=0, y=100,width=800, height=50, text=(text['Name']), font_color=(255, 255, 255), font_size=25)
+                heading.draw(screen)
+
+                back_button = button(color=(52, 196, 0), x=10, y=850, width=75, height=45, text="BACK", font_size=15)
+                if event.type == pygame.MOUSEMOTION:
+                    if back_button.isOver(mouse_pos):
+                        back_button.color = (68, 255, 0)
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if back_button.isOver(mouse_pos):
+                        running = False
+                back_button.draw(screen)
+
+                if text['wUrl'] != None:
+                    wiki_btn=button(color=(52, 196, 0), x=100, y=200, width=200, height=50, text="On Wikipedia ", font_color=(255,255,255) , font_size=17)
+                    if event.type == pygame.MOUSEMOTION:
+                        if wiki_btn.isOver(mouse_pos):
+                            wiki_btn.color = (68, 255, 0)
+                    if event.type == pygame.MOUSEBUTTONDOWN:
+                        if wiki_btn.isOver(mouse_pos):
+                            subprocess.run(f"start {text['wUrl']}",shell=True)
+                    wiki_btn.draw(screen)
+
+                if text['yID'] != None:
+                    youtube_btn=button(color=(52, 196, 0), x=500, y=200, width=200, height=50, text="Open Youtube ", font_color=(255,255,255) , font_size=17)
+                    if event.type == pygame.MOUSEMOTION:
+                        if youtube_btn.isOver(mouse_pos):
+                            youtube_btn.color = (68, 255, 0)
+                    if event.type == pygame.MOUSEBUTTONDOWN:
+                        if youtube_btn.isOver(mouse_pos):
+                            subprocess.run(f"start https://www.youtube.com/watch?v={text['yID']}",shell=True)
+                    youtube_btn.draw(screen)
+
+
+
+
+
+                
 
 
 
@@ -578,7 +926,7 @@ class lyrics_page:
 class main_screen:
     def __init__(self, event):
         screen.fill(BACKGROUND)
-        mouse_pos = pygame.mouse.get_pos() 
+        mouse_pos = pygame.mouse.get_pos()
         main_logo = pygame.transform.smoothscale(pygame.image.load(
             "assets\\LOGO.png").convert_alpha(), (400, 400))
         screen.blit(main_logo, (200, 5))
@@ -622,6 +970,10 @@ class main_screen:
         if event.type == pygame.MOUSEMOTION:
             if quote_button.isOver(mouse_pos):
                 quote_button.color = (150, 150, 255)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if quote_button.isOver(mouse_pos):
+                data = Quotes().random_quotes()
+                render = quotes_page(data)
         quote_button.draw(screen)
 
         # BUTTON 5
@@ -630,11 +982,14 @@ class main_screen:
         if event.type == pygame.MOUSEMOTION:
             if suggestion_button.isOver(mouse_pos):
                 suggestion_button.color = (150, 150, 255)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if suggestion_button.isOver(mouse_pos):
+                render = similar_page()
         suggestion_button.draw(screen)
 
         # RANDOM TIP
         global main_screen_tip
-        display_text(screen, center=True, text=main_screen_tip, x=20, y=800)
+        display_text(screen, center=True, text=main_screen_tip, x=100, y=800)
 
 # MAIN GUI END
 
@@ -646,6 +1001,7 @@ def main():
         clock.tick()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                subprocess.run("del /q /f temp\*.png", shell=True)
                 run = False
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
@@ -668,7 +1024,7 @@ def gen_tip():
     if tip_no == 3:
         text = "Advice : "+Advice().gen_advice()
     if tip_no == 4:
-        text = "~~   " + Joke().get_joke() + "   ~~"
+        text = "|  " + Joke().get_joke() + "  |"
     if tip_no == 5:
         text = 'Fact: '+Facts().random_facts()
     with open("temp\\temp_data.json", 'r') as f:
