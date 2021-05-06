@@ -1,7 +1,8 @@
 from assets.GUI_components import *
 from assets.main_functions import *
 import pygame
-import random, subprocess
+import random
+import subprocess
 
 
 def is_over(pos, x, y, width, height):
@@ -804,48 +805,53 @@ class similar_page:
 
                 screen.fill(BACKGROUND)
 
-                heading_logo = pygame.transform.smoothscale(pygame.image.load("assets\\favicon_io\\android-chrome-512x512.png").convert_alpha(), (100, 100))
+                heading_logo = pygame.transform.smoothscale(pygame.image.load(
+                    "assets\\favicon_io\\android-chrome-512x512.png").convert_alpha(), (100, 100))
                 screen.blit(heading_logo, (350, 0))
-                heading = button(color=(19, 0, 166), x=0, y=100,width=800, height=50, text=(text['Info'][0]["Type"]).capitalize()+" Similar to "+text['Info'][0]['Name'], font_color=(255, 255, 255), font_size=25)
+                heading = button(color=(19, 0, 166), x=0, y=100, width=800, height=50, text=(text['Info'][0]["Type"]).capitalize(
+                )+" Similar to "+text['Info'][0]['Name'], font_color=(255, 255, 255), font_size=25)
                 heading.draw(screen)
 
-                back_button = button(color=(52, 196, 0), x=10, y=850, width=75, height=45, text="BACK", font_size=15)
+                back_button = button(
+                    color=(52, 196, 0), x=10, y=850, width=75, height=45, text="BACK", font_size=15)
                 if event.type == pygame.MOUSEMOTION:
                     if back_button.isOver(mouse_pos):
                         back_button.color = (68, 255, 0)
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if back_button.isOver(mouse_pos):
                         running = False
-                back_button.draw(screen) 
-                
-                gap=68
+                back_button.draw(screen)
 
-                n=len(text['Results'])
+                gap = 68
 
-                for i in range(0,n//2,1):
-                    exec("sug_%i=button(color=(14, 14, 192),x=10,y=(175+(%i*%i)),width=380,height=50,text=str(%i+1)+'. '+text['Results'][%i]['Name'],font_color=(255,255,255),font_size=17)" % (i,gap,i,i,i))
+                n = len(text['Results'])
+
+                for i in range(0, n//2, 1):
+                    exec(
+                        "sug_%i=button(color=(14, 14, 192),x=10,y=(175+(%i*%i)),width=380,height=50,text=str(%i+1)+'. '+text['Results'][%i]['Name'],font_color=(255,255,255),font_size=17)" % (i, gap, i, i, i))
                     exec("""if event.type == pygame.MOUSEMOTION:
                         if sug_%i.isOver(mouse_pos):
-                            sug_%i.color = (150, 150, 255)""" % (i,i) )
+                            sug_%i.color = (150, 150, 255)""" % (i, i))
                     exec("""if event.type == pygame.MOUSEBUTTONDOWN:
                         if sug_%i.isOver(mouse_pos):
-                                render = self.suggestion_open(text['Results'][%i])""" % (i,i))
+                                render = self.suggestion_open(text['Results'][%i])""" % (i, i))
                     exec("""sug_%i.draw(screen)""" % (i))
-                
-                for i in range(n//2,n,1):
-                    exec("sug_%i=button(color=(14, 14, 192),x=410,y=(175+(%i*%i)),width=380,height=50,text=str(%i+1)+'. '+text['Results'][i]['Name'],font_color=(255,255,255),font_size=17)" % (i,gap,i-10,i))
+
+                for i in range(n//2, n, 1):
+                    exec(
+                        "sug_%i=button(color=(14, 14, 192),x=410,y=(175+(%i*%i)),width=380,height=50,text=str(%i+1)+'. '+text['Results'][i]['Name'],font_color=(255,255,255),font_size=17)" % (i, gap, i-10, i))
                     exec("""if event.type == pygame.MOUSEMOTION:
                         if sug_%i.isOver(mouse_pos):
-                            sug_%i.color = (150, 150, 255)""" % (i,i) )
+                            sug_%i.color = (150, 150, 255)""" % (i, i))
                     exec("""if event.type == pygame.MOUSEBUTTONDOWN:
                         if sug_%i.isOver(mouse_pos):
-                                render = self.suggestion_open(text['Results'][%i])""" % (i,i))
+                                render = self.suggestion_open(text['Results'][%i])""" % (i, i))
                     exec("""sug_%i.draw(screen)""" % i)
 
-    def suggestion_open(self,text):
+    def suggestion_open(self, text):
         running = True
         clock = pygame.time.Clock()
-        init_y=300
+        init_y = 300
 
         while running:
             mouse_pos = pygame.mouse.get_pos()
@@ -859,7 +865,7 @@ class similar_page:
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         running = False
-                
+
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_DOWN:
                         if init_y >= -300:
@@ -876,16 +882,20 @@ class similar_page:
 
                 screen.fill(BACKGROUND)
 
-                display_text(screen,center=False,text=text['wTeaser'],x=100,y=init_y,font_size=20)
+                display_text(screen, center=False,
+                             text=text['wTeaser'], x=100, y=init_y, font_size=20)
 
-                pygame.draw.rect(screen, (BACKGROUND), (0,0,800,280))
+                pygame.draw.rect(screen, (BACKGROUND), (0, 0, 800, 280))
 
-                heading_logo = pygame.transform.smoothscale(pygame.image.load("assets\\favicon_io\\android-chrome-512x512.png").convert_alpha(), (100, 100))
+                heading_logo = pygame.transform.smoothscale(pygame.image.load(
+                    "assets\\favicon_io\\android-chrome-512x512.png").convert_alpha(), (100, 100))
                 screen.blit(heading_logo, (350, 0))
-                heading = button(color=(19, 0, 166), x=0, y=100,width=800, height=50, text=(text['Name']), font_color=(255, 255, 255), font_size=25)
+                heading = button(color=(19, 0, 166), x=0, y=100, width=800, height=50, text=(
+                    text['Name']), font_color=(255, 255, 255), font_size=25)
                 heading.draw(screen)
 
-                back_button = button(color=(52, 196, 0), x=10, y=850, width=75, height=45, text="BACK", font_size=15)
+                back_button = button(
+                    color=(52, 196, 0), x=10, y=850, width=75, height=45, text="BACK", font_size=15)
                 if event.type == pygame.MOUSEMOTION:
                     if back_button.isOver(mouse_pos):
                         back_button.color = (68, 255, 0)
@@ -895,32 +905,27 @@ class similar_page:
                 back_button.draw(screen)
 
                 if text['wUrl'] != None:
-                    wiki_btn=button(color=(52, 196, 0), x=100, y=200, width=200, height=50, text="On Wikipedia ", font_color=(255,255,255) , font_size=17)
+                    wiki_btn = button(color=(52, 196, 0), x=100, y=200, width=200, height=50,
+                                      text="On Wikipedia ", font_color=(255, 255, 255), font_size=17)
                     if event.type == pygame.MOUSEMOTION:
                         if wiki_btn.isOver(mouse_pos):
                             wiki_btn.color = (68, 255, 0)
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         if wiki_btn.isOver(mouse_pos):
-                            subprocess.run(f"start {text['wUrl']}",shell=True)
+                            subprocess.run(f"start {text['wUrl']}", shell=True)
                     wiki_btn.draw(screen)
 
                 if text['yID'] != None:
-                    youtube_btn=button(color=(52, 196, 0), x=500, y=200, width=200, height=50, text="Open Youtube ", font_color=(255,255,255) , font_size=17)
+                    youtube_btn = button(color=(52, 196, 0), x=500, y=200, width=200, height=50,
+                                         text="Open Youtube ", font_color=(255, 255, 255), font_size=17)
                     if event.type == pygame.MOUSEMOTION:
                         if youtube_btn.isOver(mouse_pos):
                             youtube_btn.color = (68, 255, 0)
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         if youtube_btn.isOver(mouse_pos):
-                            subprocess.run(f"start https://www.youtube.com/watch?v={text['yID']}",shell=True)
+                            subprocess.run(
+                                f"start https://www.youtube.com/watch?v={text['yID']}", shell=True)
                     youtube_btn.draw(screen)
-
-
-
-
-
-                
-
-
 
 
 class main_screen:

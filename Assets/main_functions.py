@@ -1,6 +1,5 @@
 from lyricsgenius import Genius
 import requests
-import webbrowser as web
 from bs4 import BeautifulSoup as bs
 import sys
 import random
@@ -55,8 +54,8 @@ class Suggestion:
         self.key = "409313-MAP-WUR9L2ML"
 
     def similar(self, name, category=''):
-        if category=='':
-            url=f"https://tastedive.com/api/similar?q={name}&info=1&k={self.key}"
+        if category == '':
+            url = f"https://tastedive.com/api/similar?q={name}&info=1&k={self.key}"
         else:
             url = f"https://tastedive.com/api/similar?q={name}&type={category}&info=1&k={self.key}"
         response = requests.get(url)
@@ -80,20 +79,21 @@ class Poem:
         response = requests.get("https://poetrydb.org/random")
         cont = response.content.decode()
         return json.loads(cont)[0]
-    
-    def poem_by_author(self,name):
+
+    def poem_by_author(self, name):
         response = requests.get(f"https://poetrydb.org/author,random/{name};1")
         cont = response.content.decode()
         return json.loads(cont)[0]
-    
-    def poem_by_title(self,name):
+
+    def poem_by_title(self, name):
         response = requests.get(f"https://poetrydb.org/title,random/{name};1")
         cont = response.content.decode()
         return json.loads(cont)[0]
-    
-    def download_poem(self,text):
-        with open(text["title"]+".txt",'w') as f:
-            poem_file_text=text["title"]+'\n\t'+'-'+text["author"]+'\n\n'+"\n".join(text["lines"])
+
+    def download_poem(self, text):
+        with open(text["title"]+".txt", 'w') as f:
+            poem_file_text = text["title"]+'\n\t'+'-' + \
+                text["author"]+'\n\n'+"\n".join(text["lines"])
             f.write(poem_file_text)
 
 
@@ -103,12 +103,13 @@ class Lyrics:
 
     def searchLyrics(self, name):
         try:
-            song,artist=(name.strip()).split(',')
+            song, artist = (name.strip()).split(',')
         except:
-            song,artist=name.strip(),""
+            song, artist = name.strip(), ""
 
         self.song = self.genius.search_song(song, artist)
-        song_info={"title":self.song.title,"artist":self.song.artist,"lyrics":self.song.lyrics,"thumbnail":self.song.song_art_image_thumbnail_url,"linecount":(self.song.lyrics).count('\n')}
+        song_info = {"title": self.song.title, "artist": self.song.artist, "lyrics": self.song.lyrics,
+                     "thumbnail": self.song.song_art_image_thumbnail_url, "linecount": (self.song.lyrics).count('\n')}
         return song_info
 
     def serachSongByLyrics(self, lyr):
@@ -140,7 +141,7 @@ class Songs:
 
     def playOnYT(self, name):
         link = Songs().findLink(name)
-        web.open(link)
+        subprocess.run(f"start {link}", shell=True)
 
     def show_progress_bar(self, stream, _chunk, bytes_remaining):
         current = ((stream.filesize - bytes_remaining)/stream.filesize)
@@ -188,7 +189,7 @@ class Joke:
         return (json.loads(request.content.decode())['attachments'][0]['text'])
 
 
-if __name__=="__main__":
-    data=Suggestion().similar('Demon-Slayer-Kimetsu-No-Yaiba',category="shows")
+if __name__ == "__main__":
+    data = Suggestion().similar('Demon-Slayer-Kimetsu-No-Yaiba', category="shows")
     for i in range(1):
         print(data['Results'])

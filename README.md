@@ -1,5 +1,9 @@
-# M-A-D
-### Stands for Music All Day
+# M-A-D (Music All Day)
 
 <br>
-Under development...
+
+### **It's complete finally**
+
+<br>
+
+**`README.md` will be updated soon..**

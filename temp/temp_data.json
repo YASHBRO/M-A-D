@@ -1,1 +1,26 @@
-{"main_screen_tip": "|  How many optometrists does it take to change a light bulb? 1 or 2? 1... or 2?  |", "poem": {"title": "Where Thou art -- that -- is Home --", "author": "Emily Dickinson", "lines": ["Where Thou art -- that -- is Home --", "Cashmere -- or Calvary -- the same --", "Degree -- or Shame --", "I scarce esteem Location's Name --", "So I may Come --", "", "What Thou dost -- is Delight --", "Bondage as Play -- be sweet --", "Imprisonment -- Content --", "And Sentence -- Sacrament --", "Just We two -- meet --", "", "Where Thou art not -- is Woe --", "Tho' Bands of Spices -- row --", "What Thou dost not -- Despair --", "Tho' Gabriel -- praise me -- Sire --"], "linecount": "14"}}
+{
+  "main_screen_tip": "|  How many optometrists does it take to change a light bulb? 1 or 2? 1... or 2?  |",
+  "poem": {
+    "title": "Where Thou art -- that -- is Home --",
+    "author": "Emily Dickinson",
+    "lines": [
+      "Where Thou art -- that -- is Home --",
+      "Cashmere -- or Calvary -- the same --",
+      "Degree -- or Shame --",
+      "I scarce esteem Location's Name --",
+      "So I may Come --",
+      "",
+      "What Thou dost -- is Delight --",
+      "Bondage as Play -- be sweet --",
+      "Imprisonment -- Content --",
+      "And Sentence -- Sacrament --",
+      "Just We two -- meet --",
+      "",
+      "Where Thou art not -- is Woe --",
+      "Tho' Bands of Spices -- row --",
+      "What Thou dost not -- Despair --",
+      "Tho' Gabriel -- praise me -- Sire --"
+    ],
+    "linecount": "14"
+  }
+}

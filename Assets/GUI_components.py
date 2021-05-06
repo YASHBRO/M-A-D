@@ -9,7 +9,7 @@ class button():
     def __init__(self, color, x, y, width, height, text='', font_color=(0, 0, 0), font_size=25):
         self.color = color
         self.font_size = font_size
-        self.font_color=font_color
+        self.font_color = font_color
         self.x = x
         self.y = y
         self.width = width
@@ -24,11 +24,11 @@ class button():
             pygame.draw.rect(win, outline, (self.x-2, self.y -
                              2, self.width+4, self.height+4), 0)
 
-        pygame.draw.rect(win, self.color, (self.x, self.y,self.width, self.height), 0)
+        pygame.draw.rect(win, self.color, (self.x, self.y,
+                         self.width, self.height), 0)
 
-        
         win.blit(self.text, (self.x + (self.width/2 - self.text.get_width()/2),
-                     self.y + (self.height/2 - self.text.get_height()/2)))
+                             self.y + (self.height/2 - self.text.get_height()/2)))
 
     def isOver(self, pos):
         if pos[0] > self.x and pos[0] < (self.x + self.width):
@@ -42,17 +42,18 @@ class button():
 # GUI DISPLAY TEXT START
 class display_text:
     def __init__(self, screen, center=False, text="", x=0, y=0, max_width=0, max_height=0, font_family="comicsansms", font_size=17, font_color=(255, 255, 255)):
-        self.font_size=font_size
-        limit=3
-        flag=1
+        self.font_size = font_size
+        limit = 3
+        flag = 1
         while limit:
-            limit-=1
+            limit -= 1
             try:
                 myfont = pygame.font.SysFont(font_family, self.font_size)
                 label = myfont.render(text, True, font_color)
                 if (label.get_rect().width) < 780:
                     if center:
-                        x = (screen.get_size()[0]//2)-(label.get_rect().width//2)
+                        x = (screen.get_size()[0]//2) - \
+                            (label.get_rect().width//2)
                         screen.blit(label, (x, y))
                     else:
                         screen.blit(label, (x, y))
@@ -60,12 +61,12 @@ class display_text:
                     pos = (x, y)
                     words = [word.split(' ') for word in text.splitlines()]
                     space = myfont.size(' ')[0]
-                    if max_width==0:
-                        max_width=screen.get_size()[0]
+                    if max_width == 0:
+                        max_width = screen.get_size()[0]
                         max_width -= x
-                    if max_height==0:
+                    if max_height == 0:
                         max_height = screen.get_size()[1]
-                        
+
                     for line in words:
                         for word in line:
                             label = myfont.render(word, 0, font_color)
@@ -77,17 +78,17 @@ class display_text:
                             x += word_width + space
                         x = pos[0]  # - (label.get_rect().width//2)
                         y += word_height
-                flag=0
+                flag = 0
                 break
             except:
-                self.font_size-=2
+                self.font_size -= 2
         if flag:
             myfont = pygame.font.SysFont(font_family, font_size)
-            x,y=400,525
-            label = myfont.render("Can not load this, Sorry!", True, font_color)
+            x, y = 400, 525
+            label = myfont.render(
+                "Can not load this, Sorry!", True, font_color)
             x = (screen.get_size()[0]//2)-(label.get_rect().width//2)
             screen.blit(label, (x, y))
-            
 
 
 # GUI DISPLAY TEXT END
