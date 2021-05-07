@@ -2,4 +2,3 @@ pygame
 lyricsgenius
 pytube
 requests
-bs4
