@@ -1,6 +1,5 @@
 from lyricsgenius import Genius
 import requests
-from bs4 import BeautifulSoup as bs
 import sys
 import random
 import json
