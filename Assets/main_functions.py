@@ -189,6 +189,4 @@ class Joke:
 
 
 if __name__ == "__main__":
-    data = Suggestion().similar('Demon-Slayer-Kimetsu-No-Yaiba', category="shows")
-    for i in range(1):
-        print(data['Results'])
+    pass
