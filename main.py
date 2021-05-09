@@ -1023,14 +1023,14 @@ def gen_tip():
         data = Anime().random_quotes()
         text = (f'" {data["quote"]} "') + \
             (f'  - {data["character"]} (Anime : {data["anime"]})')
-    if tip_no == 2:
+    elif tip_no == 2:
         data = Quotes().random_quotes()
         text = (f'" {data["content"]} "') + (f" - {data['author']}")
-    if tip_no == 3:
+    elif tip_no == 3:
         text = "Advice : "+Advice().gen_advice()
-    if tip_no == 4:
+    elif tip_no == 4:
         text = "|  " + Joke().get_joke() + "  |"
-    if tip_no == 5:
+    elif tip_no == 5:
         text = 'Fact: '+Facts().random_facts()
     with open("temp\\temp_data.json", 'r') as f:
         file_text = json.loads(f.read())
