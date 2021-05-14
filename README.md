@@ -1,19 +1,17 @@
-<p align="center"> <img src="assets\favicon_io\android-chrome-512x512.png" width=100> </p>
 
 
+# <span style="background-color: #00102F; color:yellow;"> <h3 align="center"> M-A-D <img align="center" style="margin-left:200px" src="assets\favicon_io\android-chrome-512x512.png" width=150> </h3> </span>
 
-# <h1 align="center"> M-A-D </h1>
+<br>
 
 M A D stands for Music All Day, sorry I couldn't come up with a better name at that moment.
 
 It has a GUI (Graphical User Interface) for which I used python's module "Pygame", as I felt it more suitable for my needs.
 
 
-<hr>
-
 <br>
 
-## About
+## <span style="color:blue"> About </span>
 
 <br>
 
@@ -57,24 +55,26 @@ It has a GUI (Graphical User Interface) for which I used python's module "Pygame
 
 **To run the `main.py` file from the root folder, you need the following**
 
-1. **[Python 3]**(https://www.python.org/downloads)
+1. **[Python 3](https://www.python.org/downloads)**
 
 2. **Following python pakages**:
-   - *You don't need to install pakages manually, as it will install itself, when you run it for the first time. Just make sure you're connected to the internet.*
-   - Here is the list of pakages that will e installed:
-     1. Lyricsgenius
-     2. Pygame
-     3. Pytube
-     4. Requests
+   - **NOTE:** *You don't need to install pakages manually, as it will install itself, when you run it for the first time. Just make sure you're connected to the internet.*
+   - Here is the list of pakages that will be installed:
+     1. [Lyricsgenius](https://pypi.org/project/lyricsgenius/)
+     2. [Pygame](https://pypi.org/project/pygame/)
+     3. [Pytube](https://pypi.org/project/pytube/)
+     4. [Requests](https://pypi.org/project/requests/)
 
-    In case, If it doesn't install automatically, you can run the following command in your command line from the root directory:
+<br>
 
-        pip intall -r assets\requirements.txt
+In case, If it doesn't install automatically, you can run the following command in your command line from the root directory:
+
+        python -m pip intall -r assets\requirements.txt
 
 
 <br>
 
-## Screenshot/GIF showing the sample use of the script
+## Screenshot/GIF
 
 #### **Home Screen**
 
@@ -118,7 +118,7 @@ It has a GUI (Graphical User Interface) for which I used python's module "Pygame
 <br>
 <br>
 
-#### **Find more Screenshots *[here](https://github.com/YASHBRO/M-A-D/assets/../../../../../assets/screenshots)***
+#### **Find more Screenshots *[here](https://github.com/YASHBRO/M-A-D/tree/master/assets/screenshots)***
 
 <br>
 <br>
@@ -129,9 +129,9 @@ It has a GUI (Graphical User Interface) for which I used python's module "Pygame
 
 - In some cases you might see something similar to this:
 
-    <img src="assets\screenshots\Screenshot 2021-05-14 233655.png" alt="Error pic" width=300>
+    <img src="assets\screenshots\Screenshot 2021-05-14 233655.png" alt="Error pic" width=350>
 
-    Saying "Can not load this, Sorry", this error occurs due to the huge size of the content, I'm sorry I tried to fix this issue but can't get through it, so if you face similar kind of issue, then please co-operate, thank you. 
+    Saying _"Can not load this, Sorry"_, this error occurs due to the huge size of the content, I'm sorry I tried to fix this issue but can't get through it, so if you face similar kind of issue, then please co-operate, thank you. 
 
 
 
@@ -145,14 +145,9 @@ It has a GUI (Graphical User Interface) for which I used python's module "Pygame
 
 ## Contact:
 
-<br>
+#### _Yash Joglekar_
 
-
-#### *Author Name*
-
-**Yash Joglekar**
-
-My GitHub - [YASHBRO](https://github.com/YASHBRO) 
+My GitHub - [YASHBRO](https://github.com/YASHBRO/ "Contact me here") 
 
 
 _For suggestions or bug/error report_
