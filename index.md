@@ -1,5 +1,5 @@
 
-# <span style="background-color: #00102F; color:yellow;"> <h3 align="center"> M-A-D <img align="center" style="margin-left:200px" src="https://github.com/YASHBRO/M-A-D/blob/master/assets/favicon_io/android-chrome-512x512.png" width=150> </h3> </span>
+<h1 align="center"> <span style="background-color: #00102F; color:yellow;">  M-A-D <img align="center" style="margin-left:150px" src="https://raw.githubusercontent.com/YASHBRO/M-A-D/blob/master/assets/favicon_io/android-chrome-512x512.png" width=150>  </span> </h1>
 
 <br>
 
@@ -48,7 +48,7 @@ It has a GUI (Graphical User Interface) for which I used python's module "Pygame
 
 <br>
 
-## Requirements:
+## <span style="color:blue">Requirements</span>
 
 <br>
 
@@ -73,46 +73,46 @@ In case, If it doesn't install automatically, you can run the following command 
 
 <br>
 
-## Screenshots
+## <span style="color:blue">Screenshots</span>
 
 #### **Home Screen**
 
-<img src="https://github.com/YASHBRO/M-A-D/blob/master/assets/screenshots/Screenshot%202021-05-14%20223328.png" alt="Home Screen" width=400>
+<img src="https://raw.githubusercontent.com/YASHBRO/M-A-D/blob/master/assets/screenshots/Screenshot%202021-05-14%20223328.png" alt="Home Screen" width=400>
 
 <br>
 <br>
 
 #### **SONGS**
 
-<img src="https://github.com/YASHBRO/M-A-D/blob/master/assets/screenshots/Screenshot%202021-05-14%20223456.png" alt="Songs Screen" width=400>
+<img src="https://raw.githubusercontent.com/YASHBRO/M-A-D/blob/master/assets/screenshots/Screenshot%202021-05-14%20223456.png" alt="Songs Screen" width=400>
 
 <br>
 <br>
 
 #### **POEMS**
 
-<img src="https://github.com/YASHBRO/M-A-D/blob/master/assets/screenshots/Screenshot%202021-05-14%20223511.png" alt="Poems Screen" width=400>
+<img src="https://raw.githubusercontent.com/YASHBRO/M-A-D/blob/master/assets/screenshots/Screenshot%202021-05-14%20223511.png" alt="Poems Screen" width=400>
 
 <br>
 <br>
 
 #### **LYRICS**
 
-<img src="https://github.com/YASHBRO/M-A-D/blob/master/assets/screenshots/Screenshot%202021-05-14%20223529.png" alt="Lyrics Screen" width=400>
+<img src="https://raw.githubusercontent.com/YASHBRO/M-A-D/blob/master/assets/screenshots/Screenshot%202021-05-14%20223529.png" alt="Lyrics Screen" width=400>
 
 <br>
 <br>
 
 #### **QUOTES**
 
-<img src="https://github.com/YASHBRO/M-A-D/blob/master/assets/screenshots/Screenshot%202021-05-14%20223547.png" alt="Quotes Screen" width=400>
+<img src="https://raw.githubusercontent.com/YASHBRO/M-A-D/blob/master/assets/screenshots/Screenshot%202021-05-14%20223547.png" alt="Quotes Screen" width=400>
 
 <br>
 <br>
 
 #### **SIMILAR**
 
-<img src="https://github.com/YASHBRO/M-A-D/blob/master/assets/screenshots/Screenshot%202021-05-14%20223610.png" alt="Similar/Suggestions Screen" width=400>
+<img src="https://raw.githubusercontent.com/YASHBRO/M-A-D/blob/master/assets/screenshots/Screenshot%202021-05-14%20223610.png" alt="Similar/Suggestions Screen" width=400>
 
 <br>
 <br>
@@ -122,7 +122,7 @@ In case, If it doesn't install automatically, you can run the following command 
 <br>
 <br>
 
-## Errors:
+## <span style="color:blue">Errors</span>
 
 - In case you face any error, most probably it might be due to lack of minimum [requirements](https://github.com/YASHBRO/M-A-D#requirements).
 
@@ -142,7 +142,7 @@ In case, If it doesn't install automatically, you can run the following command 
 
 <br>
 
-## Contact:
+## <span style="color:blue">Contact</span>
 
 #### _Yash Joglekar_
 
