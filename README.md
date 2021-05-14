@@ -151,7 +151,7 @@ My GitHub - [YASHBRO](https://github.com/YASHBRO/ "Contact me here")
 
 _For suggestions or bug/error report_
 	
-Email :- yashjoglekar2012@gmail.com
+Email :- [yashjoglekar2012@gmail.com](https://mail.google.com/mail/u/0/?fs=1&to=yashjoglekar1220@gmail.com&su=Issue+with+MAD+repository&body=Write+your+issues+here:%0A "Click to send an email")
 
 <br/>
 
