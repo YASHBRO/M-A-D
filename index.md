@@ -1,5 +1,5 @@
 
-<h1 align="center"> <span style="background-color: #00102F; color:yellow;">  M-A-D <img align="center" style="margin-left:150px" src="https://raw.githubusercontent.com/YASHBRO/M-A-D/blob/master/assets/favicon_io/android-chrome-512x512.png" width=150>  </span> </h1>
+<h1 align="center" style="font-size=40px"> <span style="color:yellow;">  M-A-D <img align="center" style="margin-left:150px" src="https://raw.githubusercontent.com/YASHBRO/M-A-D/master/assets/favicon_io/android-chrome-512x512.png" width=150>  </span> </h1>
 
 <br>
 
@@ -77,42 +77,42 @@ In case, If it doesn't install automatically, you can run the following command 
 
 #### **Home Screen**
 
-<img src="https://raw.githubusercontent.com/YASHBRO/M-A-D/blob/master/assets/screenshots/Screenshot%202021-05-14%20223328.png" alt="Home Screen" width=400>
+<img src="https://raw.githubusercontent.com/YASHBRO/M-A-D/master/assets/screenshots/Screenshot%202021-05-14%20223328.png" alt="Home Screen" width=400>
 
 <br>
 <br>
 
 #### **SONGS**
 
-<img src="https://raw.githubusercontent.com/YASHBRO/M-A-D/blob/master/assets/screenshots/Screenshot%202021-05-14%20223456.png" alt="Songs Screen" width=400>
+<img src="https://raw.githubusercontent.com/YASHBRO/M-A-D/master/assets/screenshots/Screenshot%202021-05-14%20223456.png" alt="Songs Screen" width=400>
 
 <br>
 <br>
 
 #### **POEMS**
 
-<img src="https://raw.githubusercontent.com/YASHBRO/M-A-D/blob/master/assets/screenshots/Screenshot%202021-05-14%20223511.png" alt="Poems Screen" width=400>
+<img src="https://raw.githubusercontent.com/YASHBRO/M-A-D/master/assets/screenshots/Screenshot%202021-05-14%20223511.png" alt="Poems Screen" width=400>
 
 <br>
 <br>
 
 #### **LYRICS**
 
-<img src="https://raw.githubusercontent.com/YASHBRO/M-A-D/blob/master/assets/screenshots/Screenshot%202021-05-14%20223529.png" alt="Lyrics Screen" width=400>
+<img src="https://raw.githubusercontent.com/YASHBRO/M-A-D/master/assets/screenshots/Screenshot%202021-05-14%20223529.png" alt="Lyrics Screen" width=400>
 
 <br>
 <br>
 
 #### **QUOTES**
 
-<img src="https://raw.githubusercontent.com/YASHBRO/M-A-D/blob/master/assets/screenshots/Screenshot%202021-05-14%20223547.png" alt="Quotes Screen" width=400>
+<img src="https://raw.githubusercontent.com/YASHBRO/M-A-D/master/assets/screenshots/Screenshot%202021-05-14%20223547.png" alt="Quotes Screen" width=400>
 
 <br>
 <br>
 
 #### **SIMILAR**
 
-<img src="https://raw.githubusercontent.com/YASHBRO/M-A-D/blob/master/assets/screenshots/Screenshot%202021-05-14%20223610.png" alt="Similar/Suggestions Screen" width=400>
+<img src="https://raw.githubusercontent.com/YASHBRO/M-A-D/master/assets/screenshots/Screenshot%202021-05-14%20223610.png" alt="Similar/Suggestions Screen" width=400>
 
 <br>
 <br>
@@ -128,7 +128,7 @@ In case, If it doesn't install automatically, you can run the following command 
 
 - In some cases you might see something similar to this:
 
-    <img src="https://github.com/YASHBRO/M-A-D/blob/master/assets/screenshots/Screenshot%202021-05-14%20233655.png" alt="Error pic" width=350>
+    <img src="https://githubusercontent.com/YASHBRO/M-A-D/master/assets/screenshots/Screenshot%202021-05-14%20233655.png" alt="Error pic" width=350>
 
     Saying _"Can not load this, Sorry"_, this error occurs due to the huge size of the content, I'm sorry I tried to fix this issue but can't get through it, so if you face similar kind of issue, then please co-operate, thank you. 
 
