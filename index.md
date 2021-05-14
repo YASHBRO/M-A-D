@@ -1,5 +1,5 @@
 
-<h1 align="center" style="font-size=80px;padding-bottom:50px"> <span style="color:yellow;">  M-A-D <img align="center" style="margin-left:150px" src="https://raw.githubusercontent.com/YASHBRO/M-A-D/master/assets/favicon_io/android-chrome-512x512.png" width=150>  </span> </h1>
+<h1 align="center" style="font-size=80px;padding-top:-50px"> <span style="font-size:50px;">  M-A-D <img align="center" style="margin-left:150px" src="https://raw.githubusercontent.com/YASHBRO/M-A-D/master/assets/favicon_io/android-chrome-512x512.png" width=150>  </span> </h1>
 
 <br>
 
