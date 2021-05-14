@@ -1,4 +1,0 @@
-pygame
-lyricsgenius
-pytube
-requests
