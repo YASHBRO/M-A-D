@@ -1,5 +1,4 @@
 
-
 # <span style="background-color: #00102F; color:yellow;"> <h3 align="center"> M-A-D <img align="center" style="margin-left:200px" src="assets\favicon_io\android-chrome-512x512.png" width=150> </h3> </span>
 
 <br>
@@ -74,7 +73,7 @@ In case, If it doesn't install automatically, you can run the following command 
 
 <br>
 
-## Screenshot/GIF
+## Screenshots
 
 #### **Home Screen**
 
