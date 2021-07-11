@@ -3,6 +3,7 @@ from assets.main_functions import *
 import pygame
 import random
 import subprocess
+import sys
 
 
 def is_over(pos, x, y, width, height):
@@ -28,7 +29,7 @@ class song_page:
             for event in events:
                 if event.type == pygame.QUIT:
                     subprocess.run("del /q /f temp\*.png", shell=True)
-                    exit()
+                    sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         running = False
@@ -129,7 +130,7 @@ class poems_page:
             for event in events:
                 if event.type == pygame.QUIT:
                     subprocess.run("del /q /f temp\*.png", shell=True)
-                    exit()
+                    sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         running = False
@@ -252,7 +253,7 @@ class poems_page:
             for event in events:
                 if event.type == pygame.QUIT:
                     subprocess.run("del /q /f temp\*.png", shell=True)
-                    exit()
+                    sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         running = False
@@ -327,7 +328,7 @@ class lyrics_page:
             for event in events:
                 if event.type == pygame.QUIT:
                     subprocess.run("del /q /f temp\*.png", shell=True)
-                    exit()
+                    sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         running = False
@@ -440,7 +441,7 @@ class lyrics_page:
             for event in events:
                 if event.type == pygame.QUIT:
                     subprocess.run("del /q /f temp\*.png", shell=True)
-                    exit()
+                    sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         running = False
@@ -515,7 +516,7 @@ class lyrics_page:
             for event in events:
                 if event.type == pygame.QUIT:
                     subprocess.run("del /q /f temp\*.png", shell=True)
-                    exit()
+                    sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         running = False
@@ -562,7 +563,7 @@ class quotes_page:
             for event in events:
                 if event.type == pygame.QUIT:
                     subprocess.run("del /q /f temp\*.png", shell=True)
-                    exit()
+                    sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         running = False
@@ -619,7 +620,7 @@ class similar_page:
             for event in events:
                 if event.type == pygame.QUIT:
                     subprocess.run("del /q /f temp\*.png", shell=True)
-                    exit()
+                    sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         running = False
@@ -798,7 +799,7 @@ class similar_page:
             for event in events:
                 if event.type == pygame.QUIT:
                     subprocess.run("del /q /f temp\*.png", shell=True)
-                    exit()
+                    sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         running = False
@@ -861,7 +862,7 @@ class similar_page:
             for event in events:
                 if event.type == pygame.QUIT:
                     subprocess.run("del /q /f temp\*.png", shell=True)
-                    exit()
+                    sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         running = False
