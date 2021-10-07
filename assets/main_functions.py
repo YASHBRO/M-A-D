@@ -188,7 +188,3 @@ class Joke:
         link = 'https://icanhazdadjoke.com/slack'
         request = requests.get(link)
         return json.loads(request.content.decode())['attachments'][0]['text']
-
-
-if __name__ == "__main__":
-    pass

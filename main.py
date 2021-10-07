@@ -956,7 +956,7 @@ class main_screen:
                 song_button.color = (150, 150, 255)
         if event.type == pygame.MOUSEBUTTONDOWN:
             if song_button.isOver(mouse_pos):
-                render = song_page()
+                song_page()
         song_button.draw(screen)
 
         # BUTTON 2
