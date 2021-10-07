@@ -31,9 +31,13 @@ class button():
                              self.y + (self.height/2 - self.text.get_height()/2)))
 
     def isOver(self, pos):
-        if pos[0] > self.x and pos[0] < (self.x + self.width):
-            if pos[1] > self.y and pos[1] < (self.y + self.height):
-                return True
+        if (
+            pos[0] > self.x
+            and pos[0] < (self.x + self.width)
+            and pos[1] > self.y
+            and pos[1] < (self.y + self.height)
+        ):
+            return True
 
         return False
 # GUI BUTTON END
@@ -144,10 +148,12 @@ class input_text:
                 if event.type == pygame.KEYDOWN:
                     self.cursor_visible = True
 
-                    if event.key not in self.keyrepeat_counters:
-                        if not event.key == pl.K_RETURN:
-                            self.keyrepeat_counters[event.key] = [
-                                0, event.unicode]
+                    if (
+                        event.key not in self.keyrepeat_counters
+                        and not event.key == pl.K_RETURN
+                    ):
+                        self.keyrepeat_counters[event.key] = [
+                            0, event.unicode]
 
                     if event.key == pl.K_BACKSPACE:
                         self.input_string = (
@@ -187,9 +193,11 @@ class input_text:
                         )
                         self.cursor_position += len(event.unicode)
 
-                elif event.type == pl.KEYUP:
-                    if event.key in self.keyrepeat_counters:
-                        del self.keyrepeat_counters[event.key]
+                elif (
+                    event.type == pl.KEYUP
+                    and event.key in self.keyrepeat_counters
+                ):
+                    del self.keyrepeat_counters[event.key]
 
             for key in self.keyrepeat_counters:
                 self.keyrepeat_counters[key][0] += self.clock.get_time()
