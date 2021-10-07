@@ -233,6 +233,8 @@ class input_text:
             self.clock.tick()
             return False
 
+        return None
+
     def get_surface(self):
         return self.surface
 

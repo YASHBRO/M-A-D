@@ -172,7 +172,7 @@ class Advice:
     def gen_advice(self):
         link = 'https://api.adviceslip.com/advice'
         request = requests.get(link)
-        return (json.loads(request.content.decode())['slip']['advice'])
+        return json.loads(request.content.decode())['slip']['advice']
 
 
 class Quotes:
@@ -187,7 +187,7 @@ class Joke:
     def get_joke(self):
         link = 'https://icanhazdadjoke.com/slack'
         request = requests.get(link)
-        return (json.loads(request.content.decode())['attachments'][0]['text'])
+        return json.loads(request.content.decode())['attachments'][0]['text']
 
 
 if __name__ == "__main__":
