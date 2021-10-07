@@ -28,7 +28,8 @@ class song_page:
             events = pygame.event.get()
             for event in events:
                 if event.type == pygame.QUIT:
-                    subprocess.run("del /q /f temp\*.png", shell=True, check=True)
+                    subprocess.run("del /q /f temp\*.png",
+                                   shell=True, check=True)
                     sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
@@ -129,7 +130,8 @@ class poems_page:
             events = pygame.event.get()
             for event in events:
                 if event.type == pygame.QUIT:
-                    subprocess.run("del /q /f temp\*.png", shell=True, check=True)
+                    subprocess.run("del /q /f temp\*.png",
+                                   shell=True, check=True)
                     sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
@@ -252,7 +254,8 @@ class poems_page:
             events = pygame.event.get()
             for event in events:
                 if event.type == pygame.QUIT:
-                    subprocess.run("del /q /f temp\*.png", shell=True, check=True)
+                    subprocess.run("del /q /f temp\*.png",
+                                   shell=True, check=True)
                     sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
@@ -327,7 +330,8 @@ class lyrics_page:
             events = pygame.event.get()
             for event in events:
                 if event.type == pygame.QUIT:
-                    subprocess.run("del /q /f temp\*.png", shell=True, check=True)
+                    subprocess.run("del /q /f temp\*.png",
+                                   shell=True, check=True)
                     sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
@@ -440,7 +444,8 @@ class lyrics_page:
             events = pygame.event.get()
             for event in events:
                 if event.type == pygame.QUIT:
-                    subprocess.run("del /q /f temp\*.png", shell=True, check=True)
+                    subprocess.run("del /q /f temp\*.png",
+                                   shell=True, check=True)
                     sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
@@ -515,7 +520,8 @@ class lyrics_page:
             events = pygame.event.get()
             for event in events:
                 if event.type == pygame.QUIT:
-                    subprocess.run("del /q /f temp\*.png", shell=True, check=True)
+                    subprocess.run("del /q /f temp\*.png",
+                                   shell=True, check=True)
                     sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
@@ -562,7 +568,8 @@ class quotes_page:
             events = pygame.event.get()
             for event in events:
                 if event.type == pygame.QUIT:
-                    subprocess.run("del /q /f temp\*.png", shell=True, check=True)
+                    subprocess.run("del /q /f temp\*.png",
+                                   shell=True, check=True)
                     sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
@@ -619,7 +626,8 @@ class similar_page:
             events = pygame.event.get()
             for event in events:
                 if event.type == pygame.QUIT:
-                    subprocess.run("del /q /f temp\*.png", shell=True, check=True)
+                    subprocess.run("del /q /f temp\*.png",
+                                   shell=True, check=True)
                     sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
@@ -798,7 +806,8 @@ class similar_page:
             events = pygame.event.get()
             for event in events:
                 if event.type == pygame.QUIT:
-                    subprocess.run("del /q /f temp\*.png", shell=True, check=True)
+                    subprocess.run("del /q /f temp\*.png",
+                                   shell=True, check=True)
                     sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
@@ -861,7 +870,8 @@ class similar_page:
             events = pygame.event.get()
             for event in events:
                 if event.type == pygame.QUIT:
-                    subprocess.run("del /q /f temp\*.png", shell=True, check=True)
+                    subprocess.run("del /q /f temp\*.png",
+                                   shell=True, check=True)
                     sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
@@ -913,7 +923,8 @@ class similar_page:
                             wiki_btn.color = (68, 255, 0)
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         if wiki_btn.isOver(mouse_pos):
-                            subprocess.run(f"start {text['wUrl']}", shell=True, check=True)
+                            subprocess.run(
+                                f"start {text['wUrl']}", shell=True, check=True)
                     wiki_btn.draw(screen)
 
                 if text['yID'] is not None:

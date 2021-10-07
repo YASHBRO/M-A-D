@@ -12,9 +12,11 @@ with open('Assets\\credentials.json', 'r') as f:
 
 if data["first_run"] is True:
     try:
-        subprocess.run("pip install -r Assets\\requirements.txt", shell=True)
+        subprocess.run("pip install -r Assets\\requirements.txt",
+                       shell=True, check=True)
     except:
-        subprocess.run("pip install -r requirements.txt", shell=True)
+        subprocess.run("pip install -r requirements.txt",
+                       shell=True, check=True)
     data["first_run"] = False
     with open('Assets\\credentials.json', 'w') as f:
         f.write(json.dumps(data))
@@ -140,7 +142,7 @@ class Songs:
 
     def playOnYT(self, name):
         link = Songs().findLink(name)
-        subprocess.run(f"start {link}", shell=True)
+        subprocess.run(f"start {link}", shell=True, check=True)
 
     def show_progress_bar(self, stream, _chunk, bytes_remaining):
         current = ((stream.filesize - bytes_remaining)/stream.filesize)
