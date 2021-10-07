@@ -673,7 +673,7 @@ class similar_page:
                             message = "Can't find such artist, try again"
                         else:
                             message = ''
-                            render = self.suggested_page(data)
+                            self.suggested_page(data)
                 music_btn.draw(screen)
 
                 tv_show_btn = button(color=(52, 196, 0), x=100, y=500, width=290,
@@ -689,7 +689,7 @@ class similar_page:
                             message = "Can't find such show, try again"
                         else:
                             message = ''
-                            render = self.suggested_page(data)
+                            self.suggested_page(data)
                 tv_show_btn.draw(screen)
 
                 books_btn = button(color=(52, 196, 0), x=100, y=600, width=290,
@@ -705,7 +705,7 @@ class similar_page:
                             message = "Can't find such book, try again"
                         else:
                             message = ''
-                            render = self.suggested_page(data)
+                            self.suggested_page(data)
                 books_btn.draw(screen)
 
                 games_btn = button(color=(52, 196, 0), x=100, y=700, width=290,
@@ -721,7 +721,7 @@ class similar_page:
                             message = "Can't find such game, try again"
                         else:
                             message = ''
-                            render = self.suggested_page(data)
+                            self.suggested_page(data)
                 games_btn.draw(screen)
 
                 movie_btn = button(color=(52, 196, 0), x=410, y=400, width=290,
@@ -737,7 +737,7 @@ class similar_page:
                             message = "Can't find such movie, try again"
                         else:
                             message = ''
-                            render = self.suggested_page(data)
+                            self.suggested_page(data)
                 movie_btn.draw(screen)
 
                 podcast_btn = button(color=(52, 196, 0), x=410, y=500, width=290,
@@ -753,7 +753,7 @@ class similar_page:
                             message = ''
                             message = "Can't find such podcast, try again"
                         else:
-                            render = self.suggested_page(data)
+                            self.suggested_page(data)
                 podcast_btn.draw(screen)
 
                 author_btn = button(color=(52, 196, 0), x=410, y=600, width=290,
@@ -769,7 +769,7 @@ class similar_page:
                             message = "Can't find such author, try again"
                         else:
                             message = ''
-                            render = self.suggested_page(data)
+                            self.suggested_page(data)
                 author_btn.draw(screen)
 
                 misc_btn = button(color=(52, 196, 0), x=410, y=700, width=290, height=50,
@@ -785,7 +785,7 @@ class similar_page:
                             message = "Can't find such thing, try again"
                         else:
                             message = ''
-                            render = self.suggested_page(data)
+                            self.suggested_page(data)
                 misc_btn.draw(screen)
 
     def suggested_page(self, text):
@@ -1019,7 +1019,6 @@ def main():
 
 def gen_tip():
     tip_no = random.randint(1, 5)
-    # tip_no=3
     if tip_no == 1:
         data = Anime().random_quotes()
         text = (f'" {data["quote"]} "') + \
