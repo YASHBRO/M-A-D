@@ -10,7 +10,7 @@ from pytube import YouTube
 with open('Assets\\credentials.json', 'r') as f:
     data = json.loads(f.read())
 
-if data["first_run"] == True:
+if data["first_run"] is True:
     try:
         subprocess.run("pip install -r Assets\\requirements.txt", shell=True)
     except:
