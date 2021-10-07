@@ -905,7 +905,7 @@ class similar_page:
                         running = False
                 back_button.draw(screen)
 
-                if text['wUrl'] != None:
+                if text['wUrl'] is not None:
                     wiki_btn = button(color=(52, 196, 0), x=100, y=200, width=200, height=50,
                                       text="On Wikipedia ", font_color=(255, 255, 255), font_size=17)
                     if event.type == pygame.MOUSEMOTION:
@@ -916,7 +916,7 @@ class similar_page:
                             subprocess.run(f"start {text['wUrl']}", shell=True, check=True)
                     wiki_btn.draw(screen)
 
-                if text['yID'] != None:
+                if text['yID'] is not None:
                     youtube_btn = button(color=(52, 196, 0), x=500, y=200, width=200, height=50,
                                          text="Open Youtube ", font_color=(255, 255, 255), font_size=17)
                     if event.type == pygame.MOUSEMOTION:
