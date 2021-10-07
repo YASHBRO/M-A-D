@@ -155,4 +155,4 @@ Email :- [yashjoglekar2012@gmail.com](https://mail.google.com/mail/u/0/?fs=1&to=
 
 <br/>
 
-<img width="150px" src="https://sdk.bitmoji.com/render/panel/b6dbf504-c36d-498c-acf9-c7350b749221-23c927d9-4799-4bc6-9129-0d51a8a995de-v1.png?transparent=1&palette=1">
+<img width="150px" src="https://sdk.bitmoji.com/render/panel/cf7648af-2035-4e07-9237-89aa82985b3c-98b12ec1-0112-490f-8249-a51799d855be-v1.png?transparent=1&palette=1">
